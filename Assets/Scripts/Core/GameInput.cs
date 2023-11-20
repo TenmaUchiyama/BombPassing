@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-namespace BombPassing.Core
-{
+
 public class GameInput : Singleton<GameInput>
 {
     public static GameInput instance; 
-
+    
 
     private UserInput userInputAction; 
 
@@ -26,7 +25,8 @@ public class GameInput : Singleton<GameInput>
     public Vector3 GetUserMoveDirNormalized() 
     {
         Vector2 inputDir = userInputAction.User.Move.ReadValue<Vector2>(); 
-    
+       
+       Debug.Log(inputDir);
 
         Vector3 moveDir = new Vector3(-inputDir.x, 0, -inputDir.y);
 
@@ -45,5 +45,4 @@ public class GameInput : Singleton<GameInput>
 
         return vector.normalized;
     }
-}
 }

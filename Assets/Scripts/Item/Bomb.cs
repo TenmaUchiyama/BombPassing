@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BombPassing.Core;
 using UnityEngine.EventSystems;
 using System;
 
 
-namespace BombPassing.Item 
-{
-
 public class Bomb : MonoBehaviour
 {
-    const float Gravity = 9.81f; //重力加速度を定義します。
+    const float GRAVITY = 9.81f; //重力加速度を定義します。
     public float gravityScale = 1.0f;//重力の適用具合を定義します。
 
 
+    private void Start() {
+        GameManager.Instance.onGameOverEvent += onGameOver;
+    }
 
     void Update()
     {
@@ -22,8 +21,9 @@ public class Bomb : MonoBehaviour
         Vector3 getInputMoveDir = GameInput.Instance.GetUserMoveDirNormalized();
        
         this.transform.Translate(getInputMoveDir *gravityScale * Time.deltaTime);
-        // Physics.gravity = Gravity * getInputMoveDir  * gravityScale ; 
-        GameManager.Instance.onGameOverEvent += onGameOver;
+        const newGravity = GRAVITY * getInputMoveDir  * gravityScale * Vector3.down; 
+        
+        Physics.gravity = new Vector3(0, GRAVITY, 0);
 
         if(this.transform.position.y < 1.0f) FallFromPlane();
     }
@@ -52,5 +52,4 @@ public class Bomb : MonoBehaviour
     }
 
     
-}
 }

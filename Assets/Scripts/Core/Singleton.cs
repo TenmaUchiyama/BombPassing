@@ -2,8 +2,7 @@ using UnityEngine;
 
 
 
-namespace BombPassing.Core 
-{
+
     public class Singleton<T> : MonoBehaviour  where T: Component{
 
             private static T _instance;
@@ -36,4 +35,3 @@ namespace BombPassing.Core
 
 
     
-}
