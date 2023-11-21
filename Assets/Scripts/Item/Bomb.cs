@@ -18,38 +18,27 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
-
         Vector3 getInputMoveDir = GameInput.Instance.GetUserMoveDirNormalized();
-       
+  
         this.transform.Translate(getInputMoveDir *gravityScale * Time.deltaTime);
         // Physics.gravity = Gravity * getInputMoveDir  * gravityScale ; 
-        GameManager.Instance.onGameOverEvent += onGameOver;
+        // GameManager.Instance.onGameOverEvent += onGameOver;
 
-        if(this.transform.position.y < 1.0f) FallFromPlane();
+        if(this.transform.position.y < -1.0f) FallFromPlane();
     }
 
-    private void onGameOver(object sender, EventArgs e)
-    {
-        Debug.Log("GameOver from ball");
-      this.Destroy();
-    }
-
- 
 
 
     
     private void FallFromPlane() 
     { 
-        GameManager.Instance.OnGameOver();
+        GameManager.Instance.OnGameOver(this);
+          Destroy(gameObject);
     }
 
     
 
 
-    private void Destroy() 
-    {
-        Destroy(this);
-    }
 
     
 }

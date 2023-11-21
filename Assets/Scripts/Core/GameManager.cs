@@ -29,11 +29,7 @@ public class GameManager : Singleton<GameManager>
        switch(currentGameMode)
        {
         case GameMode.PLAY:
-            timer -= Time.deltaTime; 
-            if(timer <= 0)
-            {
-                OnGameOver();
-            }
+          
         break; 
         case GameMode.GAMEOVER:
         break;
@@ -41,10 +37,11 @@ public class GameManager : Singleton<GameManager>
     }
 
 
-    public void OnGameOver()
+    public void OnGameOver(MonoBehaviour context)
     {
+
         onGameOverEvent?.Invoke(this, EventArgs.Empty);
-        Debug.Log("Game Over");
+        Debug.Log("Game Over By: " + context.transform.name);
         currentGameMode = GameMode.GAMEOVER;
     }
 }
