@@ -7,16 +7,18 @@ public class DeathTrigger : MonoBehaviour
     private float time = 5.0f;
     public GameObject DeathMenu;
     private IEnumerator coroutine;
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
         DeathMenu.SetActive(false);
         coroutine = WaitForTrigger(2.0f);
         StartCoroutine(coroutine);
+        explosion.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         
     }
@@ -26,8 +28,10 @@ public class DeathTrigger : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitTime);
-            print("WaitAndPrint " + Time.time);
-            DeathMenu.SetActive(true);
+
+                explosion.SetActive(true);
+                print("WaitAndPrint " + Time.time);
+            //DeathMenu.SetActive(true);
         }
     }
 }
