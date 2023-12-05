@@ -21,7 +21,7 @@ public class Bomb : MonoBehaviour
         Vector3 getInputMoveDir = GameInput.Instance.GetUserMoveDirNormalized();
        
         this.transform.Translate(getInputMoveDir *gravityScale * Time.deltaTime);
-//        const newGravity = GRAVITY * getInputMoveDir  * gravityScale * Vector3.down; 
+        //const newGravity = GRAVITY * getInputMoveDir  * gravityScale * Vector3.down; 
         
         Physics.gravity = new Vector3(0, GRAVITY, 0);
 
