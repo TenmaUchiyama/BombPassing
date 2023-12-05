@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class DeathTrigger : MonoBehaviour
     public GameObject DeathMenu;
     private IEnumerator coroutine;
     public GameObject explosion;
+    public Boolean loseCheck = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +27,16 @@ public class DeathTrigger : MonoBehaviour
 
     private IEnumerator WaitForTrigger(float waitTime)
     {
-        while (true)
+        if (loseCheck == true)
         {
             yield return new WaitForSeconds(waitTime);
 
-                explosion.SetActive(true);
-                print("WaitAndPrint " + Time.time);
-            //DeathMenu.SetActive(true);
+            explosion.SetActive(true);
+            print("WaitAndPrint " + Time.time);
+            yield return new WaitForSeconds(1.0f);
+            explosion.SetActive(false);
+            DeathMenu.SetActive(true);
+            loseCheck = false;
         }
     }
 }
