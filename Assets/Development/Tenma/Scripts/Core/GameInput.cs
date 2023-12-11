@@ -38,12 +38,13 @@ public class GameInput : Singleton<GameInput>
     {
          Vector3 vector = new Vector3();
 
-        vector.x = -Input.gyro.rotationRateUnbiased.x;
-        vector.z = -Input.gyro.rotationRateUnbiased.y;
-        vector.y = Input.gyro.rotationRateUnbiased.z;
- 
+        vector.x = Input.acceleration.x; 
+        vector.z = Input.acceleration.y; 
+        vector.y = 1;
 
-        return vector.normalized;
+        if(vector.sqrMagnitude > 1) vector.Normalize(); 
+ 
+        return vector;
     }
 
 
