@@ -32,7 +32,7 @@ public class PressAreaManager : MonoBehaviour
         
     }
     void Start() {
-
+  Debug.Log("Called");
         this.UpdateAsObservable() 
         .Where(_ => Input.GetKeyDown(KeyCode.Space))
         .Subscribe(_=> {DisplayPressArea();})
@@ -46,7 +46,7 @@ public class PressAreaManager : MonoBehaviour
     {
 
        
-
+        Debug.Log("Called");
         Vector2 randomPosition; 
         if(pressAreas.Count < 1)
         {
