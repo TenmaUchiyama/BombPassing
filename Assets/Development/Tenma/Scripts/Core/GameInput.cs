@@ -38,8 +38,8 @@ public class GameInput : Singleton<GameInput>
     {
          Vector3 vector = new Vector3();
 
-        vector.x = Input.acceleration.x; 
-        vector.z = Input.acceleration.y; 
+        vector.x = -Input.acceleration.x; 
+        vector.z = -Input.acceleration.y; 
         vector.y = 1;
 
         if(vector.sqrMagnitude > 1) vector.Normalize(); 
