@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 
 public class GameInput : Singleton<GameInput>
 {
-    public static GameInput instance; 
-    
+
+
 
     private UserInput userInputAction; 
 
@@ -29,7 +29,7 @@ public class GameInput : Singleton<GameInput>
        Debug.Log(inputDir);
 
         Vector3 moveDir = new Vector3(-inputDir.x, 0, -inputDir.y);
-
+       
 
         return moveDir.normalized;
     }
@@ -44,5 +44,20 @@ public class GameInput : Singleton<GameInput>
  
 
         return vector.normalized;
+    }
+
+
+    public void GetPressedItem() 
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+       Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+       RaycastHit hit; 
+       
+       if(Physics.Raycast(ray, out hit))
+       {
+        Debug.Log(hit.transform.name);
+       }}
     }
 }
