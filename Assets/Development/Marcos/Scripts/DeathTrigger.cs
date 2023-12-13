@@ -30,10 +30,9 @@ public class DeathTrigger : MonoBehaviour
         if (loseCheck == true)
         {
             yield return new WaitForSeconds(waitTime);
-
+            FindObjectOfType<AudioManager>().Play("ExplosionSound");
             explosion.SetActive(true);
-            print("WaitAndPrint " + Time.time);
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(1.5f);
             explosion.SetActive(false);
             DeathMenu.SetActive(true);
             loseCheck = false;
