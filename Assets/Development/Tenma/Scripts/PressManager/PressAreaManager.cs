@@ -1,18 +1,33 @@
 
 
 
+using System;
 using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 
 public class PressAreaManager : MonoBehaviour
 {
 
 
-    [SerializeField] Canvas canvas;
+    [SerializeField] Canvas screenCanvas;
     [SerializeField] RectTransform pressAreaPrefab;
+
+
+    private PressArea _pressAreaOne; 
+    private PressArea _pressAreaTwo;
+
+    enum FormerArea
+    {
+        ONE, 
+        TWO 
+    }
+
+    private FormerArea _formerArea = FormerArea.ONE;
     
 
      private List<RectTransform> pressAreas = new List<RectTransform>();
@@ -32,15 +47,68 @@ public class PressAreaManager : MonoBehaviour
         
     }
     void Start() {
-  Debug.Log("Called");
-        this.UpdateAsObservable() 
-        .Where(_ => Input.GetKeyDown(KeyCode.Space))
-        .Subscribe(_=> {DisplayPressArea();})
-        .AddTo(this);
-    
-
+    DisplayAreas(out _pressAreaOne);
     }
 
+
+    private void Update()
+    {
+
+        
+        if (!_pressAreaOne|| !_pressAreaTwo) return;
+
+        
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_formerArea == FormerArea.ONE)
+            {
+                Destroy(_pressAreaOne.gameObject);
+                DisplayAreas(out _pressAreaOne);
+                _formerArea = FormerArea.TWO;
+                Debug.Log("Called1");
+            }else
+            {
+                Destroy(_pressAreaTwo.gameObject);
+                DisplayAreas(out _pressAreaTwo);
+                _formerArea = FormerArea.ONE;
+                Debug.Log("Called2");
+            }
+        }
+       
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void DisplayAreas(out PressArea pressArea)
+    {
+        
+        
+        RectTransform tempArea = Instantiate(pressAreaPrefab, screenCanvas.transform);
+        if(_formerArea == FormerArea.ONE )tempArea.GetComponent<Image>().color = Color.red;
+        PressArea prevArea = _formerArea == FormerArea.ONE ? _pressAreaTwo : _pressAreaOne;
+        Vector2 randomPosition = Vector2.zero;
+        
+        if (prevArea)
+        {
+             randomPosition =GetValidRandomPosition(prevArea.GetRectTransform());
+        }
+        else
+        {
+              randomPosition = GetValidRandomPosition();
+        }
+        // Vector2 randomPosition = prevArea ? GetValidRandomPosition() : GetValidRandomPosition(prevArea.GetRectTransform());
+        //
+        tempArea.position = randomPosition; 
+        pressArea = tempArea.GetComponent<PressArea>();
+    }
+
+
+    private Vector2 RandomPositionTest()
+    {
+        float randY = Random.Range(hOffset, Screen.height - hOffset);
+        float randX = Random.Range(wOffset, Screen.width - wOffset);
+        return new Vector2(randX, randY); 
+    }
 
     private void DisplayPressArea() 
     {
@@ -54,7 +122,7 @@ public class PressAreaManager : MonoBehaviour
         }else{
             randomPosition = GetValidRandomPosition(pressAreas[1]);
         }
-        RectTransform newArea = Instantiate(pressAreaPrefab,canvas.transform);
+        RectTransform newArea = Instantiate(pressAreaPrefab,screenCanvas.transform);
         newArea.position = randomPosition;
 
         pressAreas.Add(newArea);
@@ -73,15 +141,11 @@ public class PressAreaManager : MonoBehaviour
     }
 
 
-    private Vector2 MapScreenPositionToCanvas(Vector2 screenPosition)
-    {
-        return new Vector2(screenPosition.x - Screen.width/2 , screenPosition.y - Screen.height/2);
-    }
+ 
 
     
     private bool IsTheNewPositionInside(Vector2 firstArea, Vector2 secondArea)
     {
-        if (pressAreas.Count == 0) return false;
         
         float distance = Vector2.Distance(firstArea, secondArea);
         
@@ -98,11 +162,9 @@ public class PressAreaManager : MonoBehaviour
                 float randX = Random.Range(wOffset, Screen.width - wOffset);
 
                 Vector2 randomPosition = new Vector2(randX, randY);
-                if (!IsTheNewPositionInside(randomPosition, previousArea.anchoredPosition))
+                if (!IsTheNewPositionInside(randomPosition, previousArea.transform.position))
                 {
-                
                     return randomPosition;
-                    
                 }else{
                 
                 }

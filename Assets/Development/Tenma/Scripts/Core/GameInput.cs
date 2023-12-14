@@ -34,6 +34,9 @@ public class GameInput : Singleton<GameInput>
         return moveDir.normalized;
     }
 
+
+
+
     public Vector3 GetDeviceGyroNormalized()
     {
          Vector3 vector = new Vector3();
@@ -50,8 +53,8 @@ public class GameInput : Singleton<GameInput>
 
     public void GetPressedItem() 
     {
-        if(Input.GetMouseButtonDown(0))
-        {
+    if(Input.GetMouseButtonDown(0))
+    {
        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
        RaycastHit hit; 
