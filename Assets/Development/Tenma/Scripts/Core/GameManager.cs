@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -7,26 +9,50 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
 
-
-    public enum GameMode 
+    [SerializeField] private TextMeshProUGUI instructionText;
+    private enum GameMode 
     {
+        INIT,
+        READY,
         PLAY, 
         GAMEOVER 
     }
 
-
-    public GameMode currentGameMode = GameMode.PLAY;
     
-    // [SerializeField] private float timer = 5f;
+    private GameMode currentGameMode = GameMode.INIT;
+
+    public event EventHandler OnGameModeChanged;
 
 
+    private float initialReadyCount = 3f;
+    private float readyCount = 0;
+    private bool isReadyToStart = false;
 
-    public event EventHandler onGameOverEvent;
 
+    private void Start()
+    {
+        readyCount = initialReadyCount; 
+    }
 
     private void FixedUpdate() {
        switch(currentGameMode)
        {
+           case GameMode.INIT:
+               instructionText.text = "Get Ready";
+ 
+               break;
+        case GameMode.READY:
+
+            readyCount -= Time.deltaTime; 
+            int readyCountAsInt = Mathf.RoundToInt(readyCount);
+            instructionText.text = readyCountAsInt.ToString();
+            if (readyCountAsInt <= 0)
+            {
+                currentGameMode = GameMode.PLAY;
+                OnGameModeChanged.Invoke(this, EventArgs.Empty);
+            } 
+            
+            break;
         case GameMode.PLAY:
             // timer -= Time.deltaTime; 
             // if(timer <= 0)
@@ -39,11 +65,44 @@ public class GameManager : Singleton<GameManager>
        }
     }
 
-
-    public void OnGameOver()
+    public void SetReadyMode(bool isReady)
     {
-        onGameOverEvent?.Invoke(this, EventArgs.Empty);
-        Debug.Log("Game Over");
+
+        if (isReady)
+        {
+            readyCount = initialReadyCount; 
+            currentGameMode=GameMode.READY;
+        }
+        else
+        {
+            currentGameMode = GameMode.INIT;
+            
+        }
+      
+        OnGameModeChanged.Invoke(this, EventArgs.Empty);
+    }
+    public void SetGameOverMode()
+    {
         currentGameMode = GameMode.GAMEOVER;
+        instructionText.text = "GameOver";
+        OnGameModeChanged.Invoke(this, EventArgs.Empty);
+    }
+    
+    
+    
+
+
+    public bool IsInitMode()
+    {
+        return currentGameMode == GameMode.INIT;
+    } public bool IsReady()
+    {
+        return currentGameMode == GameMode.READY;
+    } public bool IsPlayMode()
+    {
+        return currentGameMode == GameMode.PLAY;
+    } public bool IsGameOverMode()
+    {
+        return currentGameMode == GameMode.GAMEOVER;
     }
 }

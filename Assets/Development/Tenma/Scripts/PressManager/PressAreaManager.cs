@@ -1,23 +1,33 @@
 
 
 
-using System.Collections.Generic;
-using UniRx;
-using UniRx.Triggers;
+using System;
+using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class PressAreaManager : MonoBehaviour
 {
 
 
-    [SerializeField] Canvas canvas;
-    [SerializeField] RectTransform pressAreaPrefab;
+    [SerializeField] Canvas screenCanvas;
+    [SerializeField] private TextMeshProUGUI instructionTxt;
+    
+    [SerializeField] private RectTransform pressAreaOnePrefab;
+    [SerializeField] private RectTransform pressAreaTwoPrefab;
+
+
+    private PressArea _pressAreaOne; 
+    private PressArea _pressAreaTwo;
     
 
-     private List<RectTransform> pressAreas = new List<RectTransform>();
+    private PressAreaType _formerArea = PressAreaType.ONE;
+    
 
 
+     
+     
 
 
 
@@ -25,63 +35,163 @@ public class PressAreaManager : MonoBehaviour
 
     private float hOffset = 150f; 
     private float wOffset = 150f;
-    private bool isClicked = false; 
-
-
-    private void Awake() {
-        
-    }
-    void Start() {
-
-        this.UpdateAsObservable() 
-        .Where(_ => Input.GetKeyDown(KeyCode.Space))
-        .Subscribe(_=> {DisplayPressArea();})
-        .AddTo(this);
     
+    private bool isAlreadyInitialized = false;
+    private bool isAlreadySwapped = false;
+    private bool isPlaying = true;
+    
+    void Start() {
+        InstantiateArea(PressAreaType.ONE);
+        _formerArea = PressAreaType.ONE;
 
+
+        GameManager.Instance.OnGameModeChanged += onGameModeChanged;
     }
 
 
-    private void DisplayPressArea() 
+    private void onGameModeChanged(object sender, EventArgs e)
+    {
+        if (GameManager.Instance.IsInitMode())
+        {
+            isAlreadyInitialized = false;
+        }
+
+        if (GameManager.Instance.IsPlayMode())
+        {
+            isAlreadyInitialized = true;
+            InstantiateArea(PressAreaType.TWO);
+        }
+
+
+        if (GameManager.Instance.IsGameOverMode())
+        {
+            Destroy(_pressAreaOne.gameObject);
+            Destroy(_pressAreaTwo.gameObject);
+        }
+    }
+    private void StartGame()
+    {
+        InstantiateArea(PressAreaType.TWO);
+        Debug.Log("GameStart!");
+        _formerArea = PressAreaType.TWO;
+    }
+
+
+    private void Update()
     {
 
-       
-
-        Vector2 randomPosition; 
-        if(pressAreas.Count < 1)
+        if (!isAlreadyInitialized)
         {
-            randomPosition = GetValidRandomPosition();
-        }else{
-            randomPosition = GetValidRandomPosition(pressAreas[1]);
+
+            if (_pressAreaOne.IsAreaPressed && GameManager.Instance.IsInitMode())
+            {
+               GameManager.Instance.SetReadyMode(true);
+            }
+
+            if (!_pressAreaOne.IsAreaPressed && GameManager.Instance.IsReady())
+            {
+                GameManager.Instance.SetReadyMode(false);
+            }
+
+            return;
         }
-        RectTransform newArea = Instantiate(pressAreaPrefab,canvas.transform);
-        newArea.position = randomPosition;
-
-        pressAreas.Add(newArea);
-
-
-        if(pressAreas.Count > 2)
+        
+        
+        
+        if (!_pressAreaOne|| !_pressAreaTwo) return;
+        if (!_pressAreaOne.IsAreaPressed && !_pressAreaTwo.IsAreaPressed)
         {
-           
-            RectTransform prevArea = pressAreas[0]; 
-            pressAreas.RemoveAt(0); 
-            Destroy(prevArea.gameObject);
+            Debug.Log("<color=green>UPPPPPPPP</color>");
+            return;
+        }
+        
+
+        if (_formerArea == PressAreaType.ONE)
+        {
+            if (!_pressAreaOne.IsAreaPressed)
+            {
+                MoveArea(PressAreaType.ONE);
+            }
+        }
+        else
+        {
+          
             
+            if (!_pressAreaTwo.IsAreaPressed)
+            {
+                MoveArea(PressAreaType.TWO);
+            }
+           
         }
-
-
+       
     }
 
+ 
 
-    private Vector2 MapScreenPositionToCanvas(Vector2 screenPosition)
+    private void MoveArea(PressAreaType type)
     {
-        return new Vector2(screenPosition.x - Screen.width/2 , screenPosition.y - Screen.height/2);
+        
+        Vector2 randomPosition;
+        switch (type)
+        {
+            case PressAreaType.ONE:
+                randomPosition = _pressAreaTwo == null
+                    ? GetValidRandomPosition()
+                    : GetValidRandomPosition(_pressAreaTwo.GetRectTransform());
+                _pressAreaOne.GetRectTransform().position = randomPosition;
+                _formerArea = PressAreaType.TWO;
+                instructionTxt.color = Color.gray;
+                instructionTxt.text = "Move Gray!";
+                break;
+            case PressAreaType.TWO:
+                randomPosition = _pressAreaOne == null
+                    ? GetValidRandomPosition()
+                    : GetValidRandomPosition(_pressAreaOne.GetRectTransform());
+                _pressAreaTwo.GetRectTransform().position = randomPosition; 
+                _formerArea = PressAreaType.ONE;
+             
+                instructionTxt.color = Color.red;
+                instructionTxt.text = "Press Red!";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
     }
+
+
+    private void InstantiateArea(PressAreaType type)
+    {
+        RectTransform tempArea;
+        Vector2 randomPosition;
+        switch (type)
+        {
+            case PressAreaType.ONE:
+                tempArea = Instantiate(pressAreaOnePrefab, screenCanvas.transform);
+                randomPosition = _pressAreaTwo == null
+                    ? GetValidRandomPosition()
+                    : GetValidRandomPosition(_pressAreaTwo.GetRectTransform());
+                tempArea.position = randomPosition;
+                _pressAreaOne = tempArea.GetComponent<PressArea>();
+                _formerArea = PressAreaType.ONE;
+                break;
+            case PressAreaType.TWO:
+                tempArea = Instantiate(pressAreaTwoPrefab, screenCanvas.transform);
+                randomPosition = _pressAreaOne== null
+                    ? GetValidRandomPosition()
+                    : GetValidRandomPosition(_pressAreaOne.GetRectTransform());
+                tempArea.position = randomPosition;
+                _pressAreaTwo = tempArea.GetComponent<PressArea>();
+                _formerArea = PressAreaType.TWO;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
+    }
+
 
     
     private bool IsTheNewPositionInside(Vector2 firstArea, Vector2 secondArea)
     {
-        if (pressAreas.Count == 0) return false;
         
         float distance = Vector2.Distance(firstArea, secondArea);
         
@@ -98,11 +208,9 @@ public class PressAreaManager : MonoBehaviour
                 float randX = Random.Range(wOffset, Screen.width - wOffset);
 
                 Vector2 randomPosition = new Vector2(randX, randY);
-                if (!IsTheNewPositionInside(randomPosition, previousArea.anchoredPosition))
+                if (!IsTheNewPositionInside(randomPosition, previousArea.transform.position))
                 {
-                
                     return randomPosition;
-                    
                 }else{
                 
                 }
