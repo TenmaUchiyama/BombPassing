@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
         INIT,
         READY,
         PLAY, 
+        PAUSE,
         GAMEOVER 
     }
 
@@ -71,7 +72,7 @@ public class GameManager : Singleton<GameManager>
         if (isReady)
         {
             readyCount = initialReadyCount; 
-            currentGameMode=GameMode.READY;
+            currentGameMode = GameMode.READY;
         }
         else
         {

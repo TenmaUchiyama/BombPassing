@@ -15,6 +15,10 @@ public class Bomb : MonoBehaviour
         GameManager.Instance.OnGameModeChanged += onGameManagerChanged;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameModeChanged -= onGameManagerChanged;
+    }
 
     private void onGameManagerChanged(object sender, EventArgs e)
     {

@@ -43,9 +43,13 @@ public class PressAreaManager : MonoBehaviour
     void Start() {
         InstantiateArea(PressAreaType.ONE);
         _formerArea = PressAreaType.ONE;
-
-
+        Debug.Log(_pressAreaOne == null);
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameModeChanged -= onGameModeChanged;
     }
 
 
@@ -82,7 +86,7 @@ public class PressAreaManager : MonoBehaviour
 
         if (!isAlreadyInitialized)
         {
-
+            
             if (_pressAreaOne.IsAreaPressed && GameManager.Instance.IsInitMode())
             {
                GameManager.Instance.SetReadyMode(true);
@@ -161,12 +165,14 @@ public class PressAreaManager : MonoBehaviour
 
     private void InstantiateArea(PressAreaType type)
     {
+     
         RectTransform tempArea;
         Vector2 randomPosition;
         switch (type)
         {
             case PressAreaType.ONE:
                 tempArea = Instantiate(pressAreaOnePrefab, screenCanvas.transform);
+              
                 randomPosition = _pressAreaTwo == null
                     ? GetValidRandomPosition()
                     : GetValidRandomPosition(_pressAreaTwo.GetRectTransform());

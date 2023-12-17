@@ -4,7 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f561a5e9-d9a9-47a2-963a-cf84f206d806" name="Changes" comment="" />
+    <list default="true" id="f561a5e9-d9a9-47a2-963a-cf84f206d806" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Materials/Explosion.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/Explosion.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/Bomb.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/BombSpawnManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/BombSpawnManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/Singleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/Singleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item/Bomb.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item/Bomb.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressArea.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressArea.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +37,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressArea.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PAMTemp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/AcceleroMeterTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestRotationAcc.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Runtime/Data/UniversalRenderPipelineAsset.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -25,26 +52,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tenma/#12__PressSystemLogic&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Tenma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Tenma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Tenma\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Tenma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Tenma\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Tenma\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.12f1\Editor\Unity.exe" />
@@ -95,6 +122,7 @@
       <workItem from="1702380832884" duration="4892000" />
       <workItem from="1702553225950" duration="8392000" />
       <workItem from="1702781869292" duration="3000" />
+      <workItem from="1702796932200" duration="18045000" />
     </task>
     <servers />
   </component>
@@ -104,6 +132,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
