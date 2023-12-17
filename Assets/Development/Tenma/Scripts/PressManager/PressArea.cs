@@ -5,18 +5,26 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+
+public enum PressAreaType
+{
+    ONE,  
+    TWO
+}
+
 public class PressArea : MonoBehaviour,  IPointerDownHandler, IPointerUpHandler,IPointerMoveHandler
 {
     // Start is called before the first frame update
-    private RectTransform pressArea;
+    private RectTransform _pressArea;
 
-    private bool isAreaPressed = false;
-    private bool isPressedOnce = false;
+    private bool _isAreaPressed = false;
+    private bool _isPressedOnce = false;
 
-    public bool IsAreaPressed => isAreaPressed;
+    public bool IsAreaPressed => _isAreaPressed;
     void Start()
     {
-        this.pressArea = GetComponent<RectTransform>(); 
+        this._pressArea = GetComponent<RectTransform>(); 
     }
 
 
@@ -31,33 +39,33 @@ public class PressArea : MonoBehaviour,  IPointerDownHandler, IPointerUpHandler,
     public void OnPointerDown(PointerEventData eventData)
     {
 
-        isPressedOnce = true; 
+        _isPressedOnce = true; 
         Vector2 touchPosition = eventData.position;
-        float distance = Vector2.Distance(touchPosition, this.pressArea.position);
+        float distance = Vector2.Distance(touchPosition, this._pressArea.position);
     
-        isAreaPressed = distance <= 150.0f;
+        _isAreaPressed = distance <= 150.0f;
     
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        isAreaPressed = false;
-        isPressedOnce = false;
+        _isAreaPressed = false;
+        _isPressedOnce = false;
     }
   
     public void OnPointerMove(PointerEventData eventData)
     {
 
-        if (!isPressedOnce) return; 
+        if (!_isPressedOnce) return; 
         Vector2 touchPosition = eventData.position;
         
-        float distance = Vector2.Distance(touchPosition, this.pressArea.position);
+        float distance = Vector2.Distance(touchPosition, this._pressArea.position);
     
-        isAreaPressed = distance <= 150.0f;
+        _isAreaPressed = distance <= 150.0f;
     }
 
     public RectTransform GetRectTransform()
     {
-        return this.pressArea; 
+        return this._pressArea; 
     }
 }
