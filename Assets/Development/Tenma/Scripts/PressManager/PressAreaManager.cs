@@ -30,9 +30,9 @@ public class PressAreaManager : MonoBehaviour
     private FormerArea _formerArea = FormerArea.ONE;
     
 
-     private List<RectTransform> pressAreas = new List<RectTransform>();
 
-
+     
+     
 
 
 
@@ -40,42 +40,85 @@ public class PressAreaManager : MonoBehaviour
 
     private float hOffset = 150f; 
     private float wOffset = 150f;
-    private bool isClicked = false; 
+    
+    private bool isAlreadInitialized = false;
+    private bool isAlreadySwapped = false;
 
 
     private void Awake() {
         
     }
+    
+    
+    
     void Start() {
     DisplayAreas(out _pressAreaOne);
+    _formerArea = FormerArea.ONE;
+    }
+
+
+    private void StartGame()
+    {
+        Debug.Log("GameStart!");
+        DisplayAreas(out _pressAreaTwo);
+        _formerArea = FormerArea.TWO;
     }
 
 
     private void Update()
     {
 
-        
-        if (!_pressAreaOne|| !_pressAreaTwo) return;
-
-        
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!isAlreadInitialized)
         {
-            if (_formerArea == FormerArea.ONE)
+
+            if (_pressAreaOne.IsAreaPressed)
             {
-                Destroy(_pressAreaOne.gameObject);
-                DisplayAreas(out _pressAreaOne);
-                _formerArea = FormerArea.TWO;
-                Debug.Log("Called1");
-            }else
+                StartGame();
+                isAlreadInitialized = true;
+            }
+            return;
+        }
+        if (!_pressAreaOne|| !_pressAreaTwo) return;
+        if (!_pressAreaOne.IsAreaPressed && !_pressAreaTwo.IsAreaPressed)
+        {
+            Debug.Log("<color=green>UPPPPPPPP</color>");
+            return;
+        }
+        
+
+        if (_formerArea == FormerArea.ONE)
+        {
+            if (!_pressAreaOne.IsAreaPressed)
             {
-                Destroy(_pressAreaTwo.gameObject);
-                DisplayAreas(out _pressAreaTwo);
-                _formerArea = FormerArea.ONE;
-                Debug.Log("Called2");
+                SwapOne();
             }
         }
+        else
+        {
+          
+            
+            if (!_pressAreaTwo.IsAreaPressed)
+            {
+                SwapTwo();
+            }
+           
+        }
        
+    }
+
+    private void SwapOne()
+    {
+        Destroy(_pressAreaOne.gameObject);
+        DisplayAreas(out _pressAreaOne);
+        _formerArea = FormerArea.TWO;
+    }
+
+
+    private void SwapTwo()
+    {
+        Destroy(_pressAreaTwo.gameObject);
+        DisplayAreas(out _pressAreaTwo);
+        _formerArea = FormerArea.ONE;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -103,45 +146,8 @@ public class PressAreaManager : MonoBehaviour
     }
 
 
-    private Vector2 RandomPositionTest()
-    {
-        float randY = Random.Range(hOffset, Screen.height - hOffset);
-        float randX = Random.Range(wOffset, Screen.width - wOffset);
-        return new Vector2(randX, randY); 
-    }
-
-    private void DisplayPressArea() 
-    {
-
-       
-        Debug.Log("Called");
-        Vector2 randomPosition; 
-        if(pressAreas.Count < 1)
-        {
-            randomPosition = GetValidRandomPosition();
-        }else{
-            randomPosition = GetValidRandomPosition(pressAreas[1]);
-        }
-        RectTransform newArea = Instantiate(pressAreaPrefab,screenCanvas.transform);
-        newArea.position = randomPosition;
-
-        pressAreas.Add(newArea);
 
 
-        if(pressAreas.Count > 2)
-        {
-           
-            RectTransform prevArea = pressAreas[0]; 
-            pressAreas.RemoveAt(0); 
-            Destroy(prevArea.gameObject);
-            
-        }
-
-
-    }
-
-
- 
 
     
     private bool IsTheNewPositionInside(Vector2 firstArea, Vector2 secondArea)

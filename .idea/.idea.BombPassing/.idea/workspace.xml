@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f561a5e9-d9a9-47a2-963a-cf84f206d806" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/PressArea.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/PressArea.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="f561a5e9-d9a9-47a2-963a-cf84f206d806" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +94,7 @@
       <workItem from="1702356197985" duration="257000" />
       <workItem from="1702380832884" duration="4892000" />
       <workItem from="1702553225950" duration="8392000" />
+      <workItem from="1702781869292" duration="3000" />
     </task>
     <servers />
   </component>
