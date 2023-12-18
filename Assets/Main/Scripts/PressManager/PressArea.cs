@@ -19,19 +19,29 @@ public class PressArea : MonoBehaviour,  IPointerDownHandler, IPointerUpHandler,
     private RectTransform _pressArea;
 
     private bool _isAreaPressed = false;
+    private bool _isPrevAreaPressed;
     private bool _isPressedOnce = false;
-
     public bool IsAreaPressed => _isAreaPressed;
+
+
+
+    public event EventHandler OnAreaPressedChanged; 
     void Start()
     {
+        _isPrevAreaPressed = _isAreaPressed;
         this._pressArea = GetComponent<RectTransform>(); 
     }
 
 
-    private void Update()
-    {
-        
+    private void Update() {
+        if(_isPrevAreaPressed != _isAreaPressed)
+        {
+             if(OnAreaPressedChanged != null)OnAreaPressedChanged.Invoke(this, EventArgs.Empty);
+            _isPrevAreaPressed = _isAreaPressed; 
+        }
     }
+
+
     
     
     
