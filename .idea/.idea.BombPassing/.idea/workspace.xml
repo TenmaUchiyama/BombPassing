@@ -6,28 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="25d5f968-071f-445f-a75f-7f38b763bab8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/CountDownUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/CountDownUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Timer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Timer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/Bomb.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/Bomb.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/BouncyBall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/BouncyBall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/Cube.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/Cube.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/PressAreaOne.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/PressAreaOne.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/PressAreaTwo.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/TestMaterial/PressAreaTwo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Original Artwork.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Original Artwork/GUI.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Original Artwork/GUI.psd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Sprite.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Sprite/GUI.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Sprite/GUI.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/readme.rtf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/readme.rtf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Khloe/Prefabs/MainMenu.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Khloe/Prefabs/MainMenu.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Khloe/Scripts/Instruction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Khloe/Scripts/timer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/GameOver.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/GameOver.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Scripts/DeathTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Scripts/DeathTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Scripts/GameOverMenuO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Scripts/GameOverMenuO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/PressArea.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item/Bomb.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Materials/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Materials/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Effects/Bomb.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Effects/Bomb.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Effects/BombFuse.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Effects/BombFuse.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Item/Bomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Item/Bomb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/Menu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/Menu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
@@ -35,6 +43,15 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PAMTemp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/AcceleroMeterTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestRotationAcc.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/NewMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Runtime/Data/UniversalRenderPipelineAsset.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
