@@ -10,6 +10,7 @@ public class BombSpawnManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
+        
     }
 
 
