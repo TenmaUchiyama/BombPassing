@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f561a5e9-d9a9-47a2-963a-cf84f206d806" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Materials/Explosion.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Materials/Explosion.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Prefabs/Explosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Marcos/Scene/DeathMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Prefabs/TestMaterial/Bomb.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/BombSpawnManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/BombSpawnManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameInput.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/Singleton.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Core/Singleton.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item/Bomb.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Item/Bomb.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressArea.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressArea.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PressAreaManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/TenmaScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/TenmaScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/CountDownUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scripts/CountDownUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/URPs/Settings/URP-HighFidelity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +39,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "tenma/#18__Temp__PressAreaAndTimerMerge",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,6 +106,7 @@
       <workItem from="1702553225950" duration="8392000" />
       <workItem from="1702781869292" duration="3000" />
       <workItem from="1702796932200" duration="18045000" />
+      <workItem from="1702956134869" duration="1322000" />
     </task>
     <servers />
   </component>
