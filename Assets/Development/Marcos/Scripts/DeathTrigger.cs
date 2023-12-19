@@ -49,8 +49,10 @@ public class DeathTrigger : MonoBehaviour
         //if (loseCheck == true)
         //{
             yield return new WaitForSeconds(waitTime);
+
             explosion.SetActive(true);
             yield return new WaitForSeconds(1.0f);
+
             explosion.SetActive(false);
             DeathMenu.SetActive(true);
             //loseCheck = false;
