@@ -18,6 +18,7 @@ public class GameInput : Singleton<GameInput>
         Input.gyro.enabled = true;
         userInputAction = new UserInput();
         userInputAction.Enable();
+        Debug.Log("hello");
     }
 
 

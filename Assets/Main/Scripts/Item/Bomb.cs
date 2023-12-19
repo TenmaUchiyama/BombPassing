@@ -12,8 +12,7 @@ public class Bomb : MonoBehaviour
    
     [SerializeField]  float gravityScale = 1.0f;//重力の適用具合を定義します。
 
-    [SerializeField] AudioClip audioCliopStart; 
-    [SerializeField] AudioClip audioClipLoop; 
+    [SerializeField] AudioClip audioCliopStart;
     private AudioSource audioSource;
 
 

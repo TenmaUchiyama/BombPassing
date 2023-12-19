@@ -87,7 +87,7 @@ public class PressAreaManager : MonoBehaviour
 
         if (!isAlreadyInitialized)
         {
-            
+           
             if (_pressAreaOne.IsAreaPressed && GameManager.Instance.IsInitMode())
             {
                GameManager.Instance.SetReadyMode(this, true);
