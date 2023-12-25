@@ -42,7 +42,7 @@ public class Timer : Singleton<Timer>
     {
         _currentGameTimer = _maxGameTimer; 
         _previousTimerArea = _currentTimerArea; 
-            Debug.Log($"CurrentTimer: {_currentGameTimer}, Max: {_maxGameTimer}");
+            // Debug.Log($"CurrentTimer: {_currentGameTimer}, Max: {_maxGameTimer}");
 
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
     }
@@ -55,7 +55,7 @@ public class Timer : Singleton<Timer>
     
         if(GameManager.Instance.IsPlayMode())
         {
-            Debug.Log("It's Play Mode");
+            // Debug.Log("It's Play Mode");
             isPlayMode = true;
         }else{
             isPlayMode = false;
@@ -137,7 +137,7 @@ public class Timer : Singleton<Timer>
 
     public void AddTime(object sender) 
     {
-      Debug.Log($"<color={DebugLogColor}>Added By: {sender}</color>");
+      // Debug.Log($"<color={DebugLogColor}>Added By: {sender}</color>");
       float newTime = _currentGameTimer + Time.deltaTime * addTimeWeight;
       
       _currentGameTimer = newTime > _maxGameTimer ?  _maxGameTimer : newTime;

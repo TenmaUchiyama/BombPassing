@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-  bool isDebugMode = false;
+  bool isDebugMode = true;
     const float Gravity = -9.81f; //重力加速度を定義します。
    
     [SerializeField]  float gravityScale = 1.0f;//重力の適用具合を定義します。
 
     [SerializeField] AudioClip audioCliopStart;
     private AudioSource audioSource;
-
+    private bool isDropped = false; 
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class Bomb : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(audioCliopStart); 
         audioSource.Play();
+
     }
 
     private void OnDestroy()
@@ -36,18 +37,22 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
+        if(this.transform.position.y < -1.0f) FallFromPlane();
         if(isDebugMode) return;
         Vector3 gameInputMoveDir = GameInput.Instance.GetDeviceGyroNormalized(); 
         Physics.gravity = Gravity * gameInputMoveDir  * gravityScale ;
-        if(this.transform.position.y < -1.0f) FallFromPlane();
+   
     }
 
 
-
-    
-    private void FallFromPlane() 
-    { 
-        GameManager.Instance.SetGameOverMode(this);
+   
+    private void FallFromPlane()
+    {
+        if(!isDropped)
+        {
+            GameManager.Instance.SetGameOverMode(this);
+            isDropped = true;
+        }
     }
 
     

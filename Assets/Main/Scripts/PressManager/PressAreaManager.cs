@@ -130,8 +130,7 @@ public class PressAreaManager : MonoBehaviour
                     : GetValidRandomPosition(_pressAreaTwo.GetRectTransform());
                 _pressAreaOne.GetRectTransform().position = randomPosition;
            
-                instructionTxt.color = Color.gray;
-                instructionTxt.text = "Move Gray!";
+         
                 break;
             case PressAreaType.TWO:
                 randomPosition = _pressAreaOne == null
@@ -139,8 +138,7 @@ public class PressAreaManager : MonoBehaviour
                     : GetValidRandomPosition(_pressAreaOne.GetRectTransform());
                 _pressAreaTwo.GetRectTransform().position = randomPosition; 
                
-                instructionTxt.color = Color.red;
-                instructionTxt.text = "Press Red!";
+            
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -190,6 +188,7 @@ public class PressAreaManager : MonoBehaviour
      if(!_pressAreaOne.IsAreaPressed)
      {
         MoveArea(PressAreaType.ONE);
+         GameManager.Instance.PressCountUp();
      }else{
         _formerArea = PressAreaType.TWO;
      }
@@ -202,8 +201,9 @@ public class PressAreaManager : MonoBehaviour
     if(!_pressAreaTwo.IsAreaPressed)
      {
         MoveArea(PressAreaType.TWO);
+         GameManager.Instance.PressCountUp();
      }else{
-             _formerArea = PressAreaType.ONE;
+        _formerArea = PressAreaType.ONE;
      }
    }
     

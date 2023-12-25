@@ -9,9 +9,17 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
 
-    [SerializeField] private TextMeshProUGUI instructionText;
+
 
     [SerializeField] private CountDownUI countDownUI;
+    [SerializeField] private DataHolder dataHolder;
+
+    private  int passCount = 0;
+    public  int PassCount => passCount;
+    public event EventHandler OnPassCountChanged;
+    
+    
+    
     private enum GameMode 
     {
         INIT,
@@ -39,25 +47,34 @@ public class GameManager : Singleton<GameManager>
     {
         readyCount = initialReadyCount; 
         previousGameMode = currentGameMode;
+        if (OnGameModeChanged != null) OnGameModeChanged += OnGameModeChangedFunc;
+    }
+
+    private void OnGameModeChangedFunc(object sender, EventArgs e)
+    {
+        if (currentGameMode == GameMode.GAMEOVER)
+        {
+            dataHolder.SetPassCountData(this.passCount);
+        }
     }
 
     private void FixedUpdate() {
 
         
         if(previousGameMode != currentGameMode)
-       {
-         previousGameMode = currentGameMode; 
+        {
+            previousGameMode = currentGameMode;
 
-        OnGameModeChanged.Invoke(this, EventArgs.Empty);
-       }
-
+            if (OnGameModeChanged != null) OnGameModeChanged.Invoke(this, EventArgs.Empty);
+        }
+        
       
     }
 
     public void SetReadyMode(object sender, bool isReady)
     {
 
-        Debug.Log($"<color=yellow>Ready Set by: {sender}</color>");
+     Debug.Log($"<color=yellow>Ready Set by: {sender}</color>");
 
         if (isReady)
         {
@@ -82,10 +99,10 @@ public class GameManager : Singleton<GameManager>
     
     public void SetGameOverMode(object sender)
     {
-
-        Debug.Log($"<color=yellow>GameOver Set by: {sender}</color>");
+        Debug.Log($"<color=yellow>Play Set by: {sender}</color>");
+        dataHolder.SetPassCountData(this.passCount);
         currentGameMode = GameMode.GAMEOVER;
-        instructionText.text = "GameOver";
+        // instructionText.text = "GameOver";
     }
     
 
@@ -106,5 +123,13 @@ public class GameManager : Singleton<GameManager>
     public bool IsGameOverMode()
     {
         return currentGameMode == GameMode.GAMEOVER;
+    }
+
+    public void PressCountUp()
+    {
+        passCount += 1;
+        if (passCount == null) Debug.Log("It is null");
+        // instructionText.text = passCount.ToString();
+        if (OnPassCountChanged != null) OnPassCountChanged.Invoke(this, EventArgs.Empty);
     }
 }

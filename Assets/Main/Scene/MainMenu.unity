@@ -218,6 +218,50 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &512624992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512624994}
+  - component: {fileID: 512624993}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &512624993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512624992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03916594b84d29458a0ce784222b60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &512624994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512624992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &588547988
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,16 +274,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1818689908}
+      objectReference: {fileID: 4882282181347664196, guid: 5e5a54b3ba6ba234a8cb95d3b53493cf,
+        type: 3}
     - target: {fileID: 810446295902634373, guid: 8d55dd367a96b734ca164b9a82537cd4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: LoadPlay
       objectReference: {fileID: 0}
     - target: {fileID: 810446295902634373, guid: 8d55dd367a96b734ca164b9a82537cd4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NewMainMenu, Assembly-CSharp
+      value: BombSceneManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2829542316307512944, guid: 8d55dd367a96b734ca164b9a82537cd4,
         type: 3}
@@ -671,3 +716,4 @@ SceneRoots:
   - {fileID: 1655948719}
   - {fileID: 510179475}
   - {fileID: 588547988}
+  - {fileID: 512624994}

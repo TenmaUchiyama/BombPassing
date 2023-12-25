@@ -92,7 +92,7 @@ public class CountDownUI : MonoBehaviour
         if(label == "Start"){
             AudioSource.PlayClipAtPoint(croppedClipStart, Camera.main.transform.position, 1.0f); }
             else{
-                Debug.Log("<color=red>hello</color>");
+   
              AudioSource.PlayClipAtPoint(croppedClipCount,Camera.main.transform.position, 1.0f); 
         }
 
