@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="25d5f968-071f-445f-a75f-7f38b763bab8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/GameOverScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/GameOverScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Bomb/Bomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Bomb/Bomb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/CountDownUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/CountDownUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +29,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PAMTemp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/AcceleroMeterTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestGameOver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestRotationAcc.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/Core/DataHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/NewMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Runtime/Data/UniversalRenderPipelineAsset.cs" root0="SKIP_HIGHLIGHTING" />
@@ -29,7 +41,7 @@
   "customColor": "",
   "associatedIndex": 4
 }]]></component>
-  <component name="ProjectId" id="2a1DA6uaG52lJI9jfHx56mIYvdX" />
+  <component name="ProjectId" id="2a1D9q00P3LWj0CYTMmghIUuQjW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -99,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1703477046009</updated>
-      <workItem from="1703477048465" duration="603000" />
+      <workItem from="1703477048465" duration="10702000" />
     </task>
     <servers />
   </component>
