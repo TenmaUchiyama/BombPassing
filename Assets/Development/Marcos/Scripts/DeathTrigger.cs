@@ -12,31 +12,14 @@ public class DeathTrigger : MonoBehaviour
     public Boolean loseCheck = true;
     // Start is called before the first frame update
 
-    private void Awake()
-    {
-        NewGameManager.OnGameStateChanged += GameManagerOnGameStateChange;
-    }
-
-    private void OnDestroy()
-    {
-        NewGameManager.OnGameStateChanged -= GameManagerOnGameStateChange;
-    }
-
-    private void GameManagerOnGameStateChange(NewGameManager.GameState state)
-    {
-        if (state == NewGameManager.GameState.GameLose)
-        {
-            coroutine = WaitForTrigger(2.0f);
-            StartCoroutine(coroutine);
-        }
-    }
-    void Start()
-    {
-        DeathMenu.SetActive(false);
-        /*coroutine = WaitForTrigger(2.0f);
-        StartCoroutine(coroutine);
-        explosion.SetActive(false);*/
-    }
+  
+    // void Start()
+    // {
+    //     DeathMenu.SetActive(false);
+    //     /*coroutine = WaitForTrigger(2.0f);
+    //     StartCoroutine(coroutine);
+    //     explosion.SetActive(false);*/
+    // }
 
         // Update is called once per frame
         void Update()
@@ -49,8 +32,10 @@ public class DeathTrigger : MonoBehaviour
         //if (loseCheck == true)
         //{
             yield return new WaitForSeconds(waitTime);
+
             explosion.SetActive(true);
             yield return new WaitForSeconds(1.0f);
+
             explosion.SetActive(false);
             DeathMenu.SetActive(true);
             //loseCheck = false;

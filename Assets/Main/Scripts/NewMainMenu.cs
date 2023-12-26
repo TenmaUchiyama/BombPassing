@@ -20,11 +20,11 @@ public class NewMainMenu : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
-    public void Instruction()
+    public void Instruction(bool openInstruction)
     {
-        mainMenu.SetActive(false);
-        tittle.SetActive(false);
-        instructions.SetActive(true);
+        mainMenu.SetActive(!openInstruction);
+        tittle.SetActive(!openInstruction);
+        instructions.SetActive(openInstruction);
 
     }
 }

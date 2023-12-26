@@ -39,6 +39,7 @@ public class PressAreaManager : MonoBehaviour
     private bool isAlreadyInitialized = false;
     private bool isAlreadySwapped = false;
     private bool isPlaying = true;
+    private bool bothFingersReleasedOnce = false;
     
     void Start() {
         InstantiateArea(PressAreaType.ONE);
@@ -86,15 +87,15 @@ public class PressAreaManager : MonoBehaviour
 
         if (!isAlreadyInitialized)
         {
-            
+           
             if (_pressAreaOne.IsAreaPressed && GameManager.Instance.IsInitMode())
             {
-               GameManager.Instance.SetReadyMode(true);
+               GameManager.Instance.SetReadyMode(this, true);
             }
 
             if (!_pressAreaOne.IsAreaPressed && GameManager.Instance.IsReady())
             {
-                GameManager.Instance.SetReadyMode(false);
+                GameManager.Instance.SetReadyMode(this, false);
             }
 
             return;
@@ -105,28 +106,13 @@ public class PressAreaManager : MonoBehaviour
         if (!_pressAreaOne|| !_pressAreaTwo) return;
         if (!_pressAreaOne.IsAreaPressed && !_pressAreaTwo.IsAreaPressed)
         {
-            Debug.Log("<color=green>UPPPPPPPP</color>");
+            bothFingersReleasedOnce = true;
+            Timer.Instance.PenalizeTimer(this);
             return;
         }
         
 
-        if (_formerArea == PressAreaType.ONE)
-        {
-            if (!_pressAreaOne.IsAreaPressed)
-            {
-                MoveArea(PressAreaType.ONE);
-            }
-        }
-        else
-        {
-          
-            
-            if (!_pressAreaTwo.IsAreaPressed)
-            {
-                MoveArea(PressAreaType.TWO);
-            }
-           
-        }
+  
        
     }
 
@@ -143,23 +129,21 @@ public class PressAreaManager : MonoBehaviour
                     ? GetValidRandomPosition()
                     : GetValidRandomPosition(_pressAreaTwo.GetRectTransform());
                 _pressAreaOne.GetRectTransform().position = randomPosition;
-                _formerArea = PressAreaType.TWO;
-                instructionTxt.color = Color.gray;
-                instructionTxt.text = "Move Gray!";
+           
+         
                 break;
             case PressAreaType.TWO:
                 randomPosition = _pressAreaOne == null
                     ? GetValidRandomPosition()
                     : GetValidRandomPosition(_pressAreaOne.GetRectTransform());
                 _pressAreaTwo.GetRectTransform().position = randomPosition; 
-                _formerArea = PressAreaType.ONE;
-             
-                instructionTxt.color = Color.red;
-                instructionTxt.text = "Press Red!";
+               
+            
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
+        Timer.Instance.AddTime(this);
     }
 
 
@@ -179,6 +163,7 @@ public class PressAreaManager : MonoBehaviour
                 tempArea.position = randomPosition;
                 _pressAreaOne = tempArea.GetComponent<PressArea>();
                 _formerArea = PressAreaType.ONE;
+                _pressAreaOne.OnAreaPressedChanged += onOneAreaPressedChanged;
                 break;
             case PressAreaType.TWO:
                 tempArea = Instantiate(pressAreaTwoPrefab, screenCanvas.transform);
@@ -188,20 +173,44 @@ public class PressAreaManager : MonoBehaviour
                 tempArea.position = randomPosition;
                 _pressAreaTwo = tempArea.GetComponent<PressArea>();
                 _formerArea = PressAreaType.TWO;
+                _pressAreaTwo.OnAreaPressedChanged += onTwoAreaPressedChanged;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
 
-
+   private void onOneAreaPressedChanged(object sender, EventArgs e)
+   {
+     if (!_pressAreaTwo) return;
+    if(_formerArea == PressAreaType.TWO) return;
+    if(!_pressAreaTwo.IsAreaPressed) return;
+     if(!_pressAreaOne.IsAreaPressed)
+     {
+        MoveArea(PressAreaType.ONE);
+         GameManager.Instance.PressCountUp();
+     }else{
+        _formerArea = PressAreaType.TWO;
+     }
+   }
+   private void onTwoAreaPressedChanged(object sender, EventArgs e)
+   {
+     if (!_pressAreaOne|| !_pressAreaTwo) return;
+    if(_formerArea == PressAreaType.ONE) return;
+    if(!_pressAreaOne.IsAreaPressed) return;
+    if(!_pressAreaTwo.IsAreaPressed)
+     {
+        MoveArea(PressAreaType.TWO);
+         GameManager.Instance.PressCountUp();
+     }else{
+        _formerArea = PressAreaType.ONE;
+     }
+   }
     
     private bool IsTheNewPositionInside(Vector2 firstArea, Vector2 secondArea)
     {
         
         float distance = Vector2.Distance(firstArea, secondArea);
-        
-        Debug.Log("first: " + firstArea  + " second: " + secondArea + " distance: " +  distance + " width: " + Screen.width + " height: " + Screen.height);
         return distance < 300;
     }
     private Vector2 GetValidRandomPosition(RectTransform previousArea = null)
