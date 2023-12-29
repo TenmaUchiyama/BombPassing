@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-  bool isDebugMode = true;
+  [SerializeField] bool isDebugMode = false;
     const float Gravity = -9.81f; //重力加速度を定義します。
    
     [SerializeField]  float gravityScale = 1.0f;//重力の適用具合を定義します。

@@ -5541,6 +5541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EA04_Env_Terrain_Desert_01a_PRE (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1478878066499514, guid: 0331db742c9d04043b9ba01afcccf73f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182607765856846, guid: 0331db742c9d04043b9ba01afcccf73f, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0

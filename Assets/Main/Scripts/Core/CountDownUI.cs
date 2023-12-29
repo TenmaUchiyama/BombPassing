@@ -84,17 +84,21 @@ public class CountDownUI : MonoBehaviour
     }
 
 
-    private void PopUpLabel(string label) 
+    private void PopUpLabel(string label)
     {
+
+
         countDownText.text = label; 
         animator.SetTrigger(POPUP_TRIGGER); 
         
-        if(label == "Start"){
-            AudioSource.PlayClipAtPoint(croppedClipStart, Camera.main.transform.position, 1.0f); }
-            else{
+        if(Mathf.CeilToInt(readyCount) == 0 ){
+            AudioSource.PlayClipAtPoint(croppedClipStart, Camera.main.transform.position, 1.0f);
+            return;
+        }
+          
    
              AudioSource.PlayClipAtPoint(croppedClipCount,Camera.main.transform.position, 1.0f); 
-        }
+   
 
 
         
