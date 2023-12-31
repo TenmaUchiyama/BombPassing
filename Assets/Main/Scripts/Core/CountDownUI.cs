@@ -93,7 +93,6 @@ public class CountDownUI : MonoBehaviour
         
         if(Mathf.CeilToInt(readyCount) == 0 ){
             AudioSource.PlayClipAtPoint(croppedClipStart, Camera.main.transform.position, 1.0f);
-            return;
         }
           
    

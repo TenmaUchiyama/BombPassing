@@ -6,17 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="25d5f968-071f-445f-a75f-7f38b763bab8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/Stage.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/Stage.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/TestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Development/Tenma/Scene/TestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Animations/CountDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Animations/CountDown.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Animations/CountDown.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Animations/CountDown.controller.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/GameOverScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/GameOverScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Bomb/Bomb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Bomb/Bomb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/CountDownUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/CountDownUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,13 +30,16 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/PressManager/PAMTemp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/ScoreData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/AcceleroMeterTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestGameOver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestJson.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Development/Tenma/Scripts/Tests/TestRotationAcc.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/Core/DataHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/NewMainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/PressManager/PressAreaManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Main/Scripts/ScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.9/Runtime/Data/UniversalRenderPipelineAsset.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -50,7 +55,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tenma/test&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tenma/#25__ScoreSavingSystem&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
@@ -112,7 +117,12 @@
       <option name="presentableId" value="Default" />
       <updated>1703477046009</updated>
       <workItem from="1703477048465" duration="10702000" />
-      <workItem from="1703829883968" duration="1000" />
+      <workItem from="1703829886980" duration="7814000" />
+      <workItem from="1703866098739" duration="2513000" />
+      <workItem from="1703869469772" duration="781000" />
+      <workItem from="1703937136317" duration="5738000" />
+      <workItem from="1703953288568" duration="1105000" />
+      <workItem from="1703988099261" duration="763000" />
     </task>
     <servers />
   </component>
