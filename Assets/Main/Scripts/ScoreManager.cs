@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +8,11 @@ public class ScoreManager : MonoBehaviour
     
     private SavingSystem _savingSystem = new SavingSystem();
 
-    [SerializeField] private TextMeshProUGUI _debugText; 
+    [SerializeField] private TextMeshProUGUI _debugText;
+
+    private int _rank;
+
+    public int Rank => _rank = -1 ;
     
     public void Start()
     {
@@ -26,8 +28,6 @@ public class ScoreManager : MonoBehaviour
        
     
         //比較してランクを調べる
-        int rank = -1;
-
         for (int i = 0; i < scoreDataList.scoredataList.Count; i++)
         {
 
@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
             if (scoreDataList.scoredataList[i].score == newScoreData.score &&
                 scoreDataList.scoredataList[i].savedDate == newScoreData.savedDate)
             {
-                rank = i + 1;
+                _rank = i + 1;
                 break;
             }
         }
@@ -51,6 +51,9 @@ public class ScoreManager : MonoBehaviour
         _debugText.text += "\n\n\n";
         _debugText.text += "Your Result: \n"; 
         _debugText.text +=  $"{newScoreData.score} {newScoreData.savedDate} \n"; 
+        
+        
+        
         
     }
 
