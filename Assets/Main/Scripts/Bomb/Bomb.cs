@@ -18,11 +18,12 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
+        WindSystem.Instance.SetWindedObject(this.GetComponent<Rigidbody>());
         GameManager.Instance.OnGameModeChanged += onGameManagerChanged;
         audioSource = GetComponent<AudioSource>();
         audioSource.PlayOneShot(audioCliopStart); 
         audioSource.Play();
-
+        
     }
 
     private void OnDestroy()
