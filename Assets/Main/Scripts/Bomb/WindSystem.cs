@@ -29,9 +29,9 @@ public class WindSystem : Singleton<WindSystem>
     
     private float[] windForce = new float[]
     {
-        0.6f,
-        1.2f,
-        2f
+        0.3f,
+        0.5f,
+        0.8f
     };
 
     private int windForceInd = 0; 
@@ -83,10 +83,11 @@ public class WindSystem : Singleton<WindSystem>
       
         if (passCount < startWindCount) return;
     
-        isWind = IsGenerateThisTime();
+        isWind = IsGenerateThisTime(passCount);
 
         
         windIndicator.gameObject.SetActive(isWind);
+        windForceIndicator.gameObject.SetActive(isWind);
         if (!isWind) return;
         windForceIndicator.text = windForce[windForceInd].ToString();
 
@@ -129,11 +130,19 @@ public class WindSystem : Singleton<WindSystem>
     }
 
 
-    private bool IsGenerateThisTime()
+    private bool IsGenerateThisTime(int passCount)
     {
         float weightedRange = Random.Range(0f, 1f);
-        
-        return weightedRange >= 0.5f; 
+
+        float thresh = 0.5f;
+        if (passCount >= 20 && passCount <27)
+        {
+            thresh = 0.35f;
+        }else if (passCount >= 27)
+        {
+            thresh = 0.2f;
+        }
+        return weightedRange >= thresh; 
     }
 
 
@@ -145,11 +154,6 @@ public class WindSystem : Singleton<WindSystem>
     }
     
     
-    private bool IsChangeWindForce()
-    {
-        float weightedRange = Random.Range(0f, 1f);
-        
-        return weightedRange >= 0.8f; 
-    }
+   
     
 }
