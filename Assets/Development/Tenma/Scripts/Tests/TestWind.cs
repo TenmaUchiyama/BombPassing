@@ -69,50 +69,12 @@ public class TestWind : MonoBehaviour
     }
 
     // Update is called once per frame
-    // void Update()
-    // {
-    //     
-    //     if (angleVector.x == 0 && angleVector.y == 1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, 180);
-    //     }
-    //     
-    //     if (angleVector.x == 1 && angleVector.y == 1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, 135);
-    //     }
-    //     
-    //     if (angleVector.x == 1 && angleVector.y == 0)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, 90);
-    //     }
-    //     
-    //     if (angleVector.x == 1 && angleVector.y == -1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, 45);
-    //     }
-    //     
-    //     if (angleVector.x == 0 && angleVector.y == -1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, 0);
-    //     }
-    //     
-    //     if (angleVector.x == -1 && angleVector.y == -1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, -45);
-    //     }
-    //     
-    //     if (angleVector.x == -1 && angleVector.y == 0)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, -90);
-    //     }
-    //     
-    //     if (angleVector.x == -1 && angleVector.y == -1)
-    //     {
-    //         rect.rotation  = Quaternion.Euler(0, 0, -135);
-    //     }
-    // }
-    //
+    void Update()
+    {
+        
+       
+    }
+    
 
 
     private void DisplayImage()

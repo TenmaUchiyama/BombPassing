@@ -52,6 +52,9 @@ public class WindSystem : Singleton<WindSystem>
     private void Start()
     {
         GameManager.Instance.OnPassCountChanged += OnPassCountChanged;
+        
+        
+      ChangeWindDir();
     }
 
 
@@ -67,7 +70,7 @@ public class WindSystem : Singleton<WindSystem>
         if (!windedObject) return;
         if (!isWind) return;
 
-
+       
         // Rigidbodyに風の力を適用
         windedObject.AddForce(windDirVec * windForce[windForceInd]);
     }
@@ -75,37 +78,57 @@ public class WindSystem : Singleton<WindSystem>
     private void OnPassCountChanged(object sender, EventArgs e)
     {
         Debug.Log(windForce[windForceInd].ToString());
-        windForceIndicator.text = windForce[windForceInd].ToString();
-        Debug.Log($"<color=red>x: {windDir[windDirInd][0]} z: {windDir[windDirInd][1]}</color>");
-        if (GameManager.Instance.PassCount < startWindCount) return;
+        
+        int passCount = GameManager.Instance.PassCount;
+      
+        if (passCount < startWindCount) return;
     
         isWind = IsGenerateThisTime();
 
         
         windIndicator.gameObject.SetActive(isWind);
         if (!isWind) return;
-        if (!IsChangingDirection()) return; 
-      
+        windForceIndicator.text = windForce[windForceInd].ToString();
+
+        if (!IsChangingDirection()) return;
+
+        ChangeWindDir();
+
+
+        int forceAvailable = 1;
+
+        if (passCount > 15 && passCount <= 20)
+        {
+            forceAvailable = 2;
+        }else if(passCount > 20)
+        {
+            forceAvailable = 3; 
+        }
+        
+        windForceInd = Random.Range(0, forceAvailable);
+        
+
+    }
+
+
+    // private void Update()
+    // {
+    //     Debug.Log($"<color=red>x: {windDir[windDirInd][0]} z: {windDir[windDirInd][1]}</color>");
+    // }
+
+
+    private void ChangeWindDir()
+    {
         windDirInd = Random.Range(0, windDir.Count);
         windDirVec =  new Vector3(windDir[windDirInd][0], 0f, windDir[windDirInd][1]);
-
-      
-        
         Vector2 angleVector = new Vector2(windDir[windDirInd][0], windDir[windDirInd][1]);
         float angleRadians = Mathf.Atan2(angleVector.y, angleVector.x);
         float angleDegrees = Mathf.Rad2Deg * angleRadians + 90;
         windIndicator.transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
         Debug.Log("change dir");
-
-        if (!IsChangeWindForce()) return;
-        windForceInd = Random.Range(0, 3);
-        windIndicator.rectTransform.localScale =
-            new Vector3(windForce[windForceInd], windForce[windForceInd], windForce[windForceInd]);
-
     }
-    
-    
-    
+
+
     private bool IsGenerateThisTime()
     {
         float weightedRange = Random.Range(0f, 1f);
