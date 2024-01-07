@@ -6,18 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class BombSceneManager : MonoBehaviour
 {
-    private void Start()
-    {
-        GameManager.Instance.OnGameModeChanged += onGameModeChanged;
-     
-    }
-
-
-    private void onGameModeChanged(object sender, EventArgs e)
-    {
-        
-        if(GameManager.Instance.IsGameOverMode()) this.LoadGameOver();
-    }
+  
+    
 
 
     public void LoadMainMenu()

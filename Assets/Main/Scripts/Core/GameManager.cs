@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
 
 
     [SerializeField] private CountDownUI countDownUI;
-    [SerializeField] private DataHolder dataHolder;
+
 
     private  int passCount = 0;
     public  int PassCount => passCount;
@@ -25,7 +25,6 @@ public class GameManager : Singleton<GameManager>
         INIT,
         READY,
         PLAY, 
-        PAUSE,
         GAMEOVER 
     }
 
@@ -47,16 +46,10 @@ public class GameManager : Singleton<GameManager>
     {
         readyCount = initialReadyCount; 
         previousGameMode = currentGameMode;
-        if (OnGameModeChanged != null) OnGameModeChanged += OnGameModeChangedFunc;
+       
     }
 
-    private void OnGameModeChangedFunc(object sender, EventArgs e)
-    {
-        if (currentGameMode == GameMode.GAMEOVER)
-        {
-            dataHolder.SetPassCountData(this.passCount);
-        }
-    }
+
 
     private void FixedUpdate() {
 
@@ -99,8 +92,8 @@ public class GameManager : Singleton<GameManager>
     
     public void SetGameOverMode(object sender)
     {
-        Debug.Log($"<color=yellow>Play Set by: {sender}</color>");
-        dataHolder.SetPassCountData(this.passCount);
+        Debug.Log($"<color=yellow>GameOver Set  by: {sender}</color>");
+      
         currentGameMode = GameMode.GAMEOVER;
         // instructionText.text = "GameOver";
     }
@@ -129,7 +122,6 @@ public class GameManager : Singleton<GameManager>
     {
         passCount += 1;
         if (passCount == null) Debug.Log("It is null");
-        // instructionText.text = passCount.ToString();
         if (OnPassCountChanged != null) OnPassCountChanged.Invoke(this, EventArgs.Empty);
     }
 }
