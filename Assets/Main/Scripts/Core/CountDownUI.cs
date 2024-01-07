@@ -9,14 +9,14 @@ public class CountDownUI : MonoBehaviour
 
 
    [SerializeField] TextMeshProUGUI countDownText; 
-
    [SerializeField] AudioClip croppedClipCount;
+
    [SerializeField] AudioClip croppedClipStart;
-   
+   [SerializeField] private GameObject textVisual; 
 
 
-    private Animator animator; 
-
+    private Animator animator;
+    private AudioSource audioSource;
     private bool isCountDownStarted = false;
 
      private float initialReadyCount = 3f;
@@ -30,9 +30,9 @@ public class CountDownUI : MonoBehaviour
         animator= GetComponent<Animator>();
             readyCount = initialReadyCount;
         GameManager.Instance.OnGameModeChanged += OnGameModeChanged;
-        
 
 
+        audioSource = GetComponent<AudioSource>();
 
 
     }
@@ -47,6 +47,12 @@ public class CountDownUI : MonoBehaviour
            
             isCountDownStarted = false;
         }
+
+
+        if (GameManager.Instance.IsGameOverMode())
+        {
+            textVisual.SetActive(false);
+        }
     }
 
     
@@ -57,6 +63,7 @@ public class CountDownUI : MonoBehaviour
             if (readyCountAsInt < 0)
                 {
                     GameManager.Instance.SetPlayMode(this);
+                    isCountDownStarted = false;
                     return;
                 } 
 
@@ -87,18 +94,27 @@ public class CountDownUI : MonoBehaviour
     private void PopUpLabel(string label)
     {
 
+        
+        Debug.Log("<color=blue>よばれてる</color>");
 
         countDownText.text = label; 
         animator.SetTrigger(POPUP_TRIGGER); 
         
-        if(Mathf.CeilToInt(readyCount) == 0 ){
-            AudioSource.PlayClipAtPoint(croppedClipStart, Camera.main.transform.position, 1.0f);
+        if(Mathf.CeilToInt(readyCount) == 0 )
+        {
+            audioSource.clip = croppedClipStart;
+           
+        }
+        else
+        {
+            audioSource.clip = croppedClipCount;
+
         }
           
    
-             AudioSource.PlayClipAtPoint(croppedClipCount,Camera.main.transform.position, 1.0f); 
+        audioSource.Play();
    
-
+        
 
         
     }
