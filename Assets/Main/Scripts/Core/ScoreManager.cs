@@ -41,12 +41,7 @@ public class ScoreManager : MonoBehaviour
         }
 
 
-        for (int i = 0; i < scoreDataList.scoredataList.Count; i++)
-        {
-            Debug.Log ($"{i + 1}. {scoreDataList.scoredataList[i].score} {scoreDataList.scoredataList[i].savedDate} \n");
-            _debugText.text +=
-                $"{i + 1}. {scoreDataList.scoredataList[i].score} {scoreDataList.scoredataList[i].savedDate} \n"; 
-        }
+      
 
         _debugText.text += "\n\n\n";
         _debugText.text += "Your Result: \n"; 
