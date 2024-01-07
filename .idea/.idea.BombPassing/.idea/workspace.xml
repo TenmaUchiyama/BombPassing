@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="25d5f968-071f-445f-a75f-7f38b763bab8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BombPassing/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Prefabs/Bomb.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/SampleStage.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scene/SampleStage.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/BombSpawnManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/SampleStage.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Main/Scene/SampleStage.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Main/Scripts/Core/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Main/Scripts/Core/ScoreManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
@@ -118,7 +117,7 @@
       <workItem from="1703953288568" duration="1105000" />
       <workItem from="1703988099261" duration="1188000" />
       <workItem from="1704070574835" duration="4164000" />
-      <workItem from="1704609574199" duration="8046000" />
+      <workItem from="1704609574199" duration="9793000" />
     </task>
     <servers />
   </component>
