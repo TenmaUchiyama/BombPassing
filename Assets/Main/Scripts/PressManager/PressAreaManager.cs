@@ -23,6 +23,8 @@ public class PressAreaManager : MonoBehaviour
     
 
     private PressAreaType _formerArea = PressAreaType.ONE;
+
+    private AudioSource _audioSource; 
     
 
 
@@ -46,6 +48,8 @@ public class PressAreaManager : MonoBehaviour
         _formerArea = PressAreaType.ONE;
         Debug.Log(_pressAreaOne == null);
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
+
+        _audioSource = GetComponent<AudioSource>(); 
     }
 
     private void OnDestroy()
@@ -108,8 +112,12 @@ public class PressAreaManager : MonoBehaviour
         {
             bothFingersReleasedOnce = true;
             Timer.Instance.PenalizeTimer(this);
+            if(!_audioSource.isPlaying) _audioSource.Play();
             return;
         }
+
+
+        if (_audioSource.isPlaying) _audioSource.Stop();        
         
 
   
