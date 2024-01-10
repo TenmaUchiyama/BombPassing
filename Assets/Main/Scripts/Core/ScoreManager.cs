@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
 
     private int _rank;
 
-    public int Rank => _rank = -1 ;
+    public int Rank => _rank = 0;
     
     public void Start()
     {
