@@ -33,18 +33,23 @@ public class CountDownUI : MonoBehaviour
 
 
         audioSource = GetComponent<AudioSource>();
-
-
+        countDownText.text = "Hold Button To Start";
     }
 
     private void  OnGameModeChanged(object sender, EventArgs e )
     {
+        
+        
+  
         if(GameManager.Instance.IsReady())
         {
-            isCountDownStarted = true; 
-        }else{
-            Clear();
+         
+            isCountDownStarted = true;
+
            
+        }else{
+            countDownText.text = "Hold Button To Start";
+            Clear();
             isCountDownStarted = false;
         }
 
