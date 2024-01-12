@@ -43,18 +43,13 @@ public class CountDownUI : MonoBehaviour
   
         if(GameManager.Instance.IsReady())
         {
-         
             isCountDownStarted = true;
-
-          
         }else{
             
             Clear();
-            countDownText.text = "<size=150>Hold Button To Start</size>";
             isCountDownStarted = false;
         }
-
-
+        
         if (GameManager.Instance.IsGameOverMode())
         {
             textVisual.SetActive(false);
