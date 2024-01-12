@@ -58,15 +58,15 @@ public class ScoreManager : MonoBehaviour
 
        //display top three
        firstText.text = $"1st: {scoreDataList[0].score}  {scoreDataList[0].savedDate}";
-
+       firstText.color = new Color(255, 215, 0, 1);
        if (scoreDataList.Count < 1) return; 
        
        secondText.text = $"2nd: {scoreDataList[1].score}  {scoreDataList[1].savedDate}";
-        
-       if (scoreDataList.Count < 2) return; 
+        secondText.color = new Color32(162, 162, 162, 255);
+        if (scoreDataList.Count < 2) return; 
        
        thirdText.text = $"3rd: {scoreDataList[2].score}  {scoreDataList[2].savedDate}";
-
+       thirdText.color = new Color32(205, 127, 50, 255);
        string rankDislay = _rank.ToString();
        if (_rank == 0) rankDislay = "Out of Rank";
        fourthText.text = $"Your Rank:   {rankDislay}        {newScoreData.score}  {newScoreData.savedDate}";
