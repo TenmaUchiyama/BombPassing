@@ -14,6 +14,10 @@ public class Timer : Singleton<Timer>
     [SerializeField] float addTimeWeight = 200f;
     [SerializeField] float _maxGameTimer = 15f;
 
+    [SerializeField] private AudioClip yellowAudioClip; 
+    [SerializeField] private AudioClip redAudioClip; 
+    
+
 
 
     private string DebugLogColor = "#87CEEB";

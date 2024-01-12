@@ -1,3 +1,5 @@
+// using System;
+
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -58,15 +60,15 @@ public class ScoreManager : MonoBehaviour
 
        //display top three
        firstText.text = $"1st: <size=55>{scoreDataList[0].score}</size>  {scoreDataList[0].savedDate}";
-       firstText.color = new Color(255, 215, 0, 1);
+       // firstText.color = new Color(255, 215, 0, 1);
        if (scoreDataList.Count < 1) return; 
        
        secondText.text = $"2nd: <size=55>{scoreDataList[1].score}</size>   {scoreDataList[1].savedDate}";
-        secondText.color = new Color32(162, 162, 162, 255);
+        // secondText.color = new Color32(162, 162, 162, 255);
         if (scoreDataList.Count < 2) return; 
        
        thirdText.text = $"3rd: <size=55>{scoreDataList[2].score}</size>  {scoreDataList[2].savedDate}";
-       thirdText.color = new Color32(205, 127, 50, 255);
+       // thirdText.color = new Color32(205, 127, 50, 255);
        string rankDislay = _rank.ToString();
        if (_rank == 0) rankDislay = "Out of Rank";
        fourthText.text = $"Your Rank:   {rankDislay}   <size=55>{newScoreData.score}</size>  {newScoreData.savedDate}";

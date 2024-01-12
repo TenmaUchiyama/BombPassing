@@ -33,7 +33,7 @@ public class CountDownUI : MonoBehaviour
 
 
         audioSource = GetComponent<AudioSource>();
-        countDownText.text = "Hold Button To Start";
+        countDownText.text = "<size=150>Hold Button To Start</size>";
     }
 
     private void  OnGameModeChanged(object sender, EventArgs e )
@@ -46,10 +46,11 @@ public class CountDownUI : MonoBehaviour
          
             isCountDownStarted = true;
 
-           
+          
         }else{
-            countDownText.text = "Hold Button To Start";
+            
             Clear();
+            countDownText.text = "<size=150>Hold Button To Start</size>";
             isCountDownStarted = false;
         }
 
