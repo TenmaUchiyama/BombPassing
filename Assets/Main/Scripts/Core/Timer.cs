@@ -18,12 +18,16 @@ public class Timer : Singleton<Timer>
 
     private string DebugLogColor = "#87CEEB";
 
+
+    private AudioSource _audioSource; 
+
     private enum TimerArea 
     {
         GREEN, 
         YELLOW, 
         RED,
-        DEAD
+        DEAD,
+        NONE,
     }
 
     private TimerArea _currentTimerArea = TimerArea.GREEN; 
@@ -41,9 +45,9 @@ public class Timer : Singleton<Timer>
     void Start()
     {
         _currentGameTimer = _maxGameTimer; 
-        _previousTimerArea = _currentTimerArea; 
-            // Debug.Log($"CurrentTimer: {_currentGameTimer}, Max: {_maxGameTimer}");
-
+        _previousTimerArea = _currentTimerArea;
+        // Debug.Log($"CurrentTimer: {_currentGameTimer}, Max: {_maxGameTimer}");
+        _audioSource = GetComponent<AudioSource>();
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
     }
 
@@ -87,7 +91,7 @@ public class Timer : Singleton<Timer>
         else if(timerRate <= 0.6 && timerRate > 0.2)
         {
           _currentTimerArea = TimerArea.YELLOW; 
-        }else if(timerRate <= 0.6 && timerRate > 0.2){
+        }else if(timerRate <= 0.2 && timerRate > 0.0){
           _currentTimerArea = TimerArea.RED; 
         }else if(timerRate < 0.0f)
         {
@@ -99,6 +103,7 @@ public class Timer : Singleton<Timer>
         if(_previousTimerArea != _currentTimerArea)
         {
 
+           
             Color outlineColor = Color.black;
             switch(_currentTimerArea)
             {
@@ -113,12 +118,25 @@ public class Timer : Singleton<Timer>
                 case TimerArea.RED: 
                   timerImageContent.color = Color.red;
                   ColorUtility.TryParseHtmlString("#910700", out outlineColor);
+
                 break;
                  case TimerArea.DEAD: 
                  GameManager.Instance.SetGameOverMode(this);
+                    _currentTimerArea = TimerArea.NONE;
                 break;
+                case TimerArea.NONE:
+                    break; 
             }
 
+            if (_currentTimerArea == TimerArea.RED)
+            {
+
+                _audioSource.Play();
+            }
+            else
+            {
+                if (_audioSource.isPlaying) _audioSource.Stop();
+            }
             timerImageOutline.color = outlineColor; 
 
         }

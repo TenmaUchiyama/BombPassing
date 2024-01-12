@@ -18,20 +18,24 @@ EditorUserSettings:
       value: 06500c5355065d0b5f080d7b447208444315407a2f79706078784f6be4b7656a
       flags: 0
     RecentlyUsedSceneGuid-4:
+
       value: 02015203530c0c0e0f585c7246225d44444e492f2e2e76687a7e1e61e3e1673e
       flags: 0
     RecentlyUsedSceneGuid-5:
+
       value: 5553525e52545a0c54570977427a0f44454e487f7d2a7e6775794d63e7b36c6a
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-5:
       value: 0208005400015f5e5e0d5c7548700844414f4a7e2a7c25347c7b1866e1b7623c
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-6:
       value: 5a080450510c59030e59092046775c44474e4079782a27622b2d4463b4e66761
       flags: 0
+
     RecentlyUsedSceneGuid-8:
       value: 0650040507500c0c5b570e7545200f44464f4c7e7a7b72357a2b1c35e6e2323e
       flags: 0
+
     UnityRemoteDevice:
       value: 225f4d46245b0d4902070862342649191512
       flags: 0
@@ -40,7 +44,7 @@ EditorUserSettings:
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
-  m_DesiredImportWorkerCount: 6
+  m_DesiredImportWorkerCount: 4
   m_StandbyImportWorkerCount: 2
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
