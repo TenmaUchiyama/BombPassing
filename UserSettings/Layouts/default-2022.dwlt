@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 10
     speed: 2
-    m_Value: 10
+    m_Value: 353.45935
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1907,9 +1907,11 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 641.5
-    width: 1531
-    height: 349.5
+
+    y: 524
+    width: 1088.6
+    height: 259.4
+
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
