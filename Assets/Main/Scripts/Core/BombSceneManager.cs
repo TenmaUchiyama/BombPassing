@@ -12,15 +12,24 @@ public class BombSceneManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(ChangeSceneWithArguments(0,0.2f));
     }
 
     public void LoadPlay()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(ChangeSceneWithArguments(1,0.2f));
     }
     public void LoadGameOver()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(ChangeSceneWithArguments(2,0.2f));
+    }
+
+    private IEnumerator ChangeSceneWithArguments(int sceneNum,  float delay)
+    {
+        // クリック音の長さ分だけ待機
+        yield return new WaitForSecondsRealtime(delay);
+
+        // 引数を使用してシーンを切り替える
+        SceneManager.LoadScene(sceneNum);
     }
 }
