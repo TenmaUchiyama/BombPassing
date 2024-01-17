@@ -125,7 +125,8 @@ public class WindSystem : Singleton<WindSystem>
         Vector2 angleVector = new Vector2(windDir[windDirInd][0], windDir[windDirInd][1]);
         float angleRadians = Mathf.Atan2(angleVector.y, angleVector.x);
         float angleDegrees = Mathf.Rad2Deg * angleRadians + 90;
-        windIndicator.transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
+
+        if(windIndicator) windIndicator.transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
         Debug.Log("change dir");
     }
 

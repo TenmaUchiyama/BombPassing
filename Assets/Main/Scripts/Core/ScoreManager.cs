@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject _goldHat; 
     [SerializeField] private GameObject _silverHat; 
     [SerializeField] private GameObject _bronzeHat; 
+    [SerializeField] private GameObject _yourRankHat; 
 
     
     
@@ -82,7 +83,8 @@ public class ScoreManager : MonoBehaviour
 
        if (_rank == 0) rankDislay = "Out of Rank";
        if (_rank <= 3) return; 
-       fourthText.text = $"Your Rank:   {rankDislay}   <size=50>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
+       _yourRankHat.SetActive(true);
+       fourthText.text = $"Your Rank:   <size=50>{rankDislay}</size>   <size=75>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
         
        
        
