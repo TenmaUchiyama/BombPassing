@@ -1,15 +1,25 @@
 // using System;
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
 
     
     private SavingSystem _savingSystem = new SavingSystem();
+
+    private float fadeDuration = 0.8f; 
+
+    private Image flashingImg; 
+    private TextMeshProUGUI flashingTxt;
+
+
+
 
     [SerializeField] private TextMeshProUGUI firstText;
     [SerializeField] private TextMeshProUGUI secondText;
@@ -29,6 +39,8 @@ public class ScoreManager : MonoBehaviour
     private int _rank;
 
     public int Rank => _rank = 0;
+
+    
     
     public void Start()
     {
@@ -82,7 +94,30 @@ public class ScoreManager : MonoBehaviour
 
 
        if (_rank == 0) rankDislay = "Out of Rank";
-       if (_rank <= 3) return; 
+
+       
+       switch(_rank)
+       {
+        case 1:
+            flashingTxt = firstText;
+             flashingImg = _goldHat.GetComponent<Image>(); 
+        break; 
+            
+        case 2: 
+           flashingTxt = secondText; 
+            flashingImg = _silverHat.GetComponent<Image>(); 
+        break; 
+
+        case 3: 
+           flashingTxt = thirdText; 
+           flashingImg = _bronzeHat.GetComponent<Image>(); 
+        break; 
+        
+       }
+
+
+       if(_rank <= 3) return;
+       
        _yourRankHat.SetActive(true);
        fourthText.text = $"Your Rank:   <size=50>{rankDislay}</size>   <size=75>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
         
@@ -92,6 +127,43 @@ public class ScoreManager : MonoBehaviour
 
 
     }
+
+
+
+   private IEnumerator FadeLoop()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(FadeText(0f, fadeDuration)); // Alphaを0にする
+            yield return new WaitForSeconds(0.1f); // 少し待機
+            yield return StartCoroutine(FadeText(1f, fadeDuration)); // Alphaを1に戻す
+            yield return new WaitForSeconds(0.1f); // 少し待機
+        }
+    }
+
+    private IEnumerator FadeText(float targetAlpha, float duration)
+    {
+        float startAlpha = flashingTxt.color.a;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+            Color newColor = flashingTxt.color;
+            newColor.a = newAlpha;
+            flashingTxt.color = newColor;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 最終的に確実にtargetAlphaに設定
+        Color finalColor = flashingTxt.color;
+        finalColor.a = targetAlpha;
+        flashingTxt.color = finalColor;
+    }
+     
+
 
 
    
