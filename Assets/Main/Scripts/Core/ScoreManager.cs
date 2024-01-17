@@ -17,6 +17,11 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fourthText;
     
     [SerializeField] private TextMeshProUGUI rankText; 
+
+    [SerializeField] private GameObject _goldHat; 
+    [SerializeField] private GameObject _silverHat; 
+    [SerializeField] private GameObject _bronzeHat; 
+
     
     
 
@@ -59,18 +64,24 @@ public class ScoreManager : MonoBehaviour
 
 
        //display top three
+       _goldHat.SetActive(true);
        firstText.text = $"1st: <size=80>{scoreDataList[0].score}</size>  <size=50>{scoreDataList[0].savedDate}</size>";
        // firstText.color = new Color(255, 215, 0, 1);
        if (scoreDataList.Count < 1) return; 
        
+       _silverHat.SetActive(true);
        secondText.text = $"2nd: <size=75>{scoreDataList[1].score}</size>   <size=50>{scoreDataList[1].savedDate}</size>";
         // secondText.color = new Color32(162, 162, 162, 255);
         if (scoreDataList.Count < 2) return; 
        
+       _bronzeHat.SetActive(true);
        thirdText.text = $"3rd: <size=75>{scoreDataList[2].score}</size>  <size=50>{scoreDataList[2].savedDate}</size>";
        // thirdText.color = new Color32(205, 127, 50, 255);
        string rankDislay = _rank.ToString();
+
+
        if (_rank == 0) rankDislay = "Out of Rank";
+       if (_rank <= 3) return; 
        fourthText.text = $"Your Rank:   {rankDislay}   <size=50>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
         
        
