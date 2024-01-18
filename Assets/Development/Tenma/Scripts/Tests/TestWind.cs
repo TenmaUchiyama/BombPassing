@@ -8,10 +8,12 @@ using Random = UnityEngine.Random;
 public class TestWind : MonoBehaviour
 {
 
-
+    [Range(0, 360)]
+    [SerializeField] private float angle;
     [SerializeField] private Vector2 angleVector;
     [SerializeField] private RectTransform rect; 
     [SerializeField] private TextMeshProUGUI debugText; 
+    [SerializeField] private Transform _windTransform;
     
     
     private List<int[]> windDir = new List<int[]>
@@ -30,27 +32,37 @@ public class TestWind : MonoBehaviour
 
     public void GenerateWind()
     {
-        if (IsGenerateThisTime())
-        {
-            if(IsChanginDirection())
-            {
-                int windInd = Random.Range(0, windDir.Count);
+
+        ChangeDir();
+        // if (IsGenerateThisTime())
+        // {
+        //     if(IsChanginDirection())
+        //     {
+        //        ChangeDir();
+        //     }
+        //     else
+        //     {
+        //         Debug.Log("not change dir");
+        //     }
+        //     DisplayImage();
+        // }
+        // else
+        // {
+        //     DisplayText();
+        // }
+    }
+
+
+    private void ChangeDir() 
+    {
+            int windInd = Random.Range(0, windDir.Count);
                 angleVector = new Vector2(windDir[windInd][0], windDir[windInd][1]);
                 float angleRadians = Mathf.Atan2(angleVector.y, angleVector.x);
                 float angleDegrees = Mathf.Rad2Deg * angleRadians;
+                _windTransform.rotation = Quaternion.Euler(0, -angleDegrees, 0);
                 rect.rotation = Quaternion.Euler(0, 0, angleDegrees);
-                Debug.Log("change dir");
-            }
-            else
-            {
-                Debug.Log("not change dir");
-            }
-            DisplayImage();
-        }
-        else
-        {
-            DisplayText();
-        }
+
+                Debug.Log($"change dir {angleDegrees} ");
     }
 
 
@@ -69,11 +81,7 @@ public class TestWind : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-       
-    }
+
     
 
 
