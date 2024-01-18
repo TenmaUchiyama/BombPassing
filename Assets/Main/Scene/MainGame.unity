@@ -1411,6 +1411,7 @@ MonoBehaviour:
   startWindCount: 4
   windIndicator: {fileID: 1877254263}
   windForceIndicator: {fileID: 442785686}
+  windParticleSystem: {fileID: 1647063770}
 --- !u!82 &834706487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2542,6 +2543,12 @@ RectTransform:
 --- !u!4 &1647063768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8166864527858524773, guid: f6465cc0dad1c1f4db333a67574d6242,
+    type: 3}
+  m_PrefabInstance: {fileID: 8865040003372860033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1647063770 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3038427509753808068, guid: f6465cc0dad1c1f4db333a67574d6242,
     type: 3}
   m_PrefabInstance: {fileID: 8865040003372860033}
   m_PrefabAsset: {fileID: 0}
