@@ -160,7 +160,7 @@ public class Timer : Singleton<Timer>
     public void AddTime(object sender) 
     {
       // Debug.Log($"<color={DebugLogColor}>Added By: {sender}</color>");
-      float newTime = _currentGameTimer + Time.deltaTime * addTimeWeight;
+      float newTime = _currentGameTimer +  addTimeWeight;
       
       _currentGameTimer = newTime > _maxGameTimer ?  _maxGameTimer : newTime;
     }

@@ -96,12 +96,15 @@ public class WindSystem : Singleton<WindSystem>
 
        
         // // Rigidbodyに風の力を適用
-        // windedObject.AddForce(windDirVec * windForceParam[windForceInd].windForce);
+        windedObject.AddForce(windDirVec * windForceParam[windForceInd].windForce);
     }
 
     private void OnPassCountChanged(object sender, EventArgs e)
     {
-        Debug.Log(windForceParam[windForceInd].ToString());
+
+
+        Debug.Log($"<color=red>{windForceParam[windForceInd].windForce}</color>");
+   
         
         int passCount = GameManager.Instance.PassCount;
       
