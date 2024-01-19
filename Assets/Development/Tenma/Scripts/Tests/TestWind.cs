@@ -33,23 +33,19 @@ public class TestWind : MonoBehaviour
     public void GenerateWind()
     {
 
-        ChangeDir();
-        // if (IsGenerateThisTime())
-        // {
-        //     if(IsChanginDirection())
-        //     {
-        //        ChangeDir();
-        //     }
-        //     else
-        //     {
-        //         Debug.Log("not change dir");
-        //     }
-        //     DisplayImage();
-        // }
-        // else
-        // {
-        //     DisplayText();
-        // }
+
+        if (IsGenerateThisTime())
+        {
+            if(IsChanginDirection())
+            {
+               ChangeDir();
+            }
+            DisplayImage();
+        }
+        else
+        {
+            DisplayText();
+        }
     }
 
 
@@ -62,7 +58,7 @@ public class TestWind : MonoBehaviour
                 _windTransform.rotation = Quaternion.Euler(0, -angleDegrees, 0);
                 rect.rotation = Quaternion.Euler(0, 0, angleDegrees);
 
-                Debug.Log($"change dir {angleDegrees} ");
+              
     }
 
 

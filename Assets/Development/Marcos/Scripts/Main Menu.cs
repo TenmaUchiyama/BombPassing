@@ -25,14 +25,14 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        Debug.Log("Scene changed");
+
         NewGameManager.Instance.UpdateGameState(NewGameManager.GameState.GameReady);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
     {
-        Debug.Log("Game quited");
+  
         Application.Quit();
 
     }

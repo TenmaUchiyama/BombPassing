@@ -73,27 +73,13 @@ public class ScoreManager : MonoBehaviour
        _goldHat.SetActive(true);
        firstText.text = $"1st: <size=80>{scoreDataList[0].score}</size>  <size=50>{scoreDataList[0].savedDate}</size>";
        // firstText.color = new Color(255, 215, 0, 1);
-        if(_rank == 1) 
-         {
-            
-           Animator animator = _goldHat.GetComponent<Animator>();
-         
-           animator.SetBool(START_ANIM, true);
-             
-     
-         }
+       
        if (scoreDataList.Count < 2) return; 
        
        _silverHat.SetActive(true);
        secondText.text = $"2nd: <size=75>{scoreDataList[1].score}</size>   <size=50>{scoreDataList[1].savedDate}</size>";
         // secondText.color = new Color32(162, 162, 162, 255);
-         if(_rank == 2)
-         {
-             Animator animator = _silverHat.GetComponent<Animator>();
-           
-            _silverHat.GetComponent<Animator>().SetBool(START_ANIM, true);
-
-        }
+     
         if (scoreDataList.Count < 3) return; 
        
        _bronzeHat.SetActive(true);
@@ -101,12 +87,7 @@ public class ScoreManager : MonoBehaviour
        // thirdText.color = new Color32(205, 127, 50, 255);
        string rankDislay = _rank.ToString();
 
- if(_rank == 3)
-        {
-            Animator animator = _bronzeHat.GetComponent<Animator>();
-        
-            _bronzeHat.GetComponent<Animator>().SetBool(START_ANIM, true);
-        } 
+
        if (_rank == 0) rankDislay = "Out of Rank";
 
      

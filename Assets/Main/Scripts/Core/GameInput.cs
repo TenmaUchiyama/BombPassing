@@ -18,7 +18,7 @@ public class GameInput : Singleton<GameInput>
         Input.gyro.enabled = true;
         userInputAction = new UserInput();
         userInputAction.Enable();
-        Debug.Log("hello");
+        
     }
 
 
@@ -27,7 +27,7 @@ public class GameInput : Singleton<GameInput>
     {
         Vector2 inputDir = userInputAction.User.Move.ReadValue<Vector2>(); 
        
-       Debug.Log(inputDir);
+
 
         Vector3 moveDir = new Vector3(-inputDir.x, 0, -inputDir.y);
        
@@ -52,17 +52,4 @@ public class GameInput : Singleton<GameInput>
     }
 
 
-    public void GetPressedItem() 
-    {
-    if(Input.GetMouseButtonDown(0))
-    {
-       Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-       RaycastHit hit; 
-       
-       if(Physics.Raycast(ray, out hit))
-       {
-        Debug.Log(hit.transform.name);
-       }}
-    }
 }

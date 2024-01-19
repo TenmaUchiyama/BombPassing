@@ -34,7 +34,6 @@ public class TestJson : MonoBehaviour
         for (int i = 0; i < scoreDataList.scoredataList.Count; i++)
         {
 
-            Debug.Log(scoreDataList.scoredataList[i].savedDate);
             if (scoreDataList.scoredataList[i].score == newScoreData.score &&
                 scoreDataList.scoredataList[i].savedDate == newScoreData.savedDate)
             {
