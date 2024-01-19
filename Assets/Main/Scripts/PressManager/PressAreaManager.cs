@@ -46,7 +46,7 @@ public class PressAreaManager : MonoBehaviour
     void Start() {
         InstantiateArea(PressAreaType.ONE);
         _formerArea = PressAreaType.ONE;
-        Debug.Log(_pressAreaOne == null);
+      
         GameManager.Instance.OnGameModeChanged += onGameModeChanged;
 
         _audioSource = GetComponent<AudioSource>(); 
@@ -81,7 +81,7 @@ public class PressAreaManager : MonoBehaviour
     private void StartGame()
     {
         InstantiateArea(PressAreaType.TWO);
-        Debug.Log("GameStart!");
+       
         _formerArea = PressAreaType.TWO;
     }
 

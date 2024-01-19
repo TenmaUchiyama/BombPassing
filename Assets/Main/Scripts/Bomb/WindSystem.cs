@@ -13,13 +13,16 @@ public class WindSystem : Singleton<WindSystem>
     [SerializeField] private int startWindCount = 4;
 
     [SerializeField] private Transform windIndicator;
-    [SerializeField] private TextMeshProUGUI windForceIndicator; 
 
     [SerializeField] private ParticleSystem windParticleSystem;
+    
+    private ParticleSystem.MainModule windModule;
 
+    [SerializeField] private ParticleSystem leafParticleSystem;
+
+    private ParticleSystem.MainModule leafModule;
     
     private AudioSource windAudioSource;
-    private ParticleSystem.MainModule windModule;
 
 
     private Rigidbody windedObject;
@@ -40,8 +43,8 @@ public class WindSystem : Singleton<WindSystem>
     private WindParameter[] windForceParam = new WindParameter[]
     {
         new WindParameter{windForce = 0.2f, windParticleSize = 0.1f, windParticleSpeed = 1f , windSoundPitch = 1f },
-        new WindParameter{windForce = 0.5f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
-        new WindParameter{windForce = 0.7f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
+        new WindParameter{windForce = 0.4f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
+        new WindParameter{windForce = 0.6f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
 
     
     };
@@ -68,8 +71,10 @@ public class WindSystem : Singleton<WindSystem>
  
 
         windModule = windParticleSystem.main;
-        windModule.startSpeed = windForceParam[windForceInd].windParticleSpeed;
+        windModule.simulationSpeed = windForceParam[windForceInd].windParticleSpeed;
         windModule.startSize = windForceParam[windForceInd].windParticleSize;
+
+        leafModule = leafParticleSystem.main;
 
       
         
@@ -98,7 +103,7 @@ public class WindSystem : Singleton<WindSystem>
     {
 
 
-        Debug.Log($"<color=red>{windForceParam[windForceInd].windForce}</color>");
+       
    
         
         int passCount = GameManager.Instance.PassCount;
@@ -109,8 +114,7 @@ public class WindSystem : Singleton<WindSystem>
 
         
         windIndicator.gameObject.SetActive(isWind);
-        windForceIndicator.gameObject.SetActive(isWind);
-
+       
         if(!isWind) {
             windAudioSource.Stop(); 
             return;}   
@@ -118,7 +122,7 @@ public class WindSystem : Singleton<WindSystem>
         if(!windAudioSource.isPlaying)windAudioSource.Play();
  
 
-        windForceIndicator.text = windForceParam[windForceInd].ToString();
+      
 
         if (!IsChangingDirection()) return;
 
@@ -142,11 +146,6 @@ public class WindSystem : Singleton<WindSystem>
     }
 
 
-    // private void Update()
-    // {
-    //     Debug.Log($"<color=red>x: {windDir[windDirInd][0]} z: {windDir[windDirInd][1]}</color>");
-    // }
-
 
     private void ChangeWindDir()
     {
@@ -157,7 +156,7 @@ public class WindSystem : Singleton<WindSystem>
         float angleDegrees = Mathf.Rad2Deg * angleRadians + 90;
 
         if(windIndicator) windIndicator.transform.rotation = Quaternion.Euler(0, -angleDegrees, 0);
-        Debug.Log("change dir");
+
     }
 
 
@@ -187,9 +186,12 @@ public class WindSystem : Singleton<WindSystem>
 
     private void SetWindParticleParameter(int windForceParamInd)
     {
-            windModule.startSpeed = windForceParam[windForceParamInd].windParticleSpeed;
+            windModule.simulationSpeed = windForceParam[windForceParamInd].windParticleSpeed;
             windModule.startSize = windForceParam[windForceParamInd].windParticleSize;
             windAudioSource.pitch = windForceParam[windForceParamInd].windSoundPitch;
+
+            leafModule.simulationSpeed = windForceParam[windForceParamInd].windParticleSpeed;
+
     }
     
     

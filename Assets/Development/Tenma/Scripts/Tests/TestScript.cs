@@ -24,7 +24,7 @@ public class TestScript : MonoBehaviour
 
         
         float distance = Vector2.Distance(firstArea, secondArea);
-        Debug.Log(distance);
+       
         return distance < 300;
     }
 

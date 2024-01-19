@@ -96,7 +96,7 @@ public class CountDownUI : MonoBehaviour
     {
 
         
-        Debug.Log("<color=blue>よばれてる</color>");
+       
 
         countDownText.text = label; 
         animator.SetTrigger(POPUP_TRIGGER); 
