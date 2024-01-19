@@ -44,14 +44,14 @@ public class WindSystem : Singleton<WindSystem>
     }
     private WindParameter[] windForceParam = new WindParameter[]
     {
-        new WindParameter{windForce = 0.3f, windParticleSize = 0.1f, windParticleSpeed = 1f , windSoundPitch = 1f },
-        new WindParameter{windForce = 0.5f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
-        new WindParameter{windForce = 0.8f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
+        new WindParameter{windForce = 0.2f, windParticleSize = 0.1f, windParticleSpeed = 1f , windSoundPitch = 1f },
+        new WindParameter{windForce = 0.3f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
+        new WindParameter{windForce = 0.5f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
 
     
     };
 
-    private int windForceInd = 0; 
+    private int windForceInd = 2; 
     
 
     

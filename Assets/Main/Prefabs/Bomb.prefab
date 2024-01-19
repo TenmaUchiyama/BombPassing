@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cd3eaf8d22bd144a438821a6bbf857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebugMode: 1
+  isDebugMode: 0
   gravityScale: 0.3
   audioCliopStart: {fileID: 8300000, guid: 7d58bcb12f8a740418c471bddfcbf589, type: 3}
 --- !u!82 &2040446072602492144
