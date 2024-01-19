@@ -17,8 +17,15 @@ public class WindSystem : Singleton<WindSystem>
 
     [SerializeField] private int startWindCount = 4;
 
-    [SerializeField] private Image windIndicator;
+    [SerializeField] private Transform windIndicator;
     [SerializeField] private TextMeshProUGUI windForceIndicator; 
+
+    [SerializeField] private ParticleSystem windParticleSystem;
+
+    
+    private AudioSource windAudioSource;
+    private ParticleSystem.MainModule windModule;
+
 
     private Rigidbody windedObject;
     private Vector3 windDirVec; 
@@ -27,14 +34,24 @@ public class WindSystem : Singleton<WindSystem>
     private int windDirInd = 0;
     
     
-    private float[] windForce = new float[]
+
+    struct WindParameter
     {
-        0.3f,
-        0.5f,
-        0.8f
+        public float windForce; 
+        public float windParticleSize; 
+        public float windParticleSpeed;
+        public float windSoundPitch;
+    }
+    private WindParameter[] windForceParam = new WindParameter[]
+    {
+        new WindParameter{windForce = 0.2f, windParticleSize = 0.1f, windParticleSpeed = 1f , windSoundPitch = 1f },
+        new WindParameter{windForce = 0.3f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
+        new WindParameter{windForce = 0.5f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
+
+    
     };
 
-    private int windForceInd = 0; 
+    private int windForceInd = 2; 
     
 
     
@@ -51,8 +68,15 @@ public class WindSystem : Singleton<WindSystem>
     };
     private void Start()
     {
+        windAudioSource = GetComponent<AudioSource>();
         GameManager.Instance.OnPassCountChanged += OnPassCountChanged;
-        
+ 
+
+        windModule = windParticleSystem.main;
+        windModule.startSpeed = windForceParam[windForceInd].windParticleSpeed;
+        windModule.startSize = windForceParam[windForceInd].windParticleSize;
+
+      
         
       ChangeWindDir();
     }
@@ -71,13 +95,16 @@ public class WindSystem : Singleton<WindSystem>
         if (!isWind) return;
 
        
-        // Rigidbodyに風の力を適用
-        windedObject.AddForce(windDirVec * windForce[windForceInd]);
+        // // Rigidbodyに風の力を適用
+        windedObject.AddForce(windDirVec * windForceParam[windForceInd].windForce);
     }
 
     private void OnPassCountChanged(object sender, EventArgs e)
     {
-        Debug.Log(windForce[windForceInd].ToString());
+
+
+        Debug.Log($"<color=red>{windForceParam[windForceInd].windForce}</color>");
+   
         
         int passCount = GameManager.Instance.PassCount;
       
@@ -88,8 +115,15 @@ public class WindSystem : Singleton<WindSystem>
         
         windIndicator.gameObject.SetActive(isWind);
         windForceIndicator.gameObject.SetActive(isWind);
-        if (!isWind) return;
-        windForceIndicator.text = windForce[windForceInd].ToString();
+
+        if(!isWind) {
+            windAudioSource.Stop(); 
+            return;}   
+        
+        if(!windAudioSource.isPlaying)windAudioSource.Play();
+ 
+
+        windForceIndicator.text = windForceParam[windForceInd].ToString();
 
         if (!IsChangingDirection()) return;
 
@@ -107,6 +141,7 @@ public class WindSystem : Singleton<WindSystem>
         }
         
         windForceInd = Random.Range(0, forceAvailable);
+        SetWindParticleParameter(windForceInd);
         
 
     }
@@ -125,7 +160,8 @@ public class WindSystem : Singleton<WindSystem>
         Vector2 angleVector = new Vector2(windDir[windDirInd][0], windDir[windDirInd][1]);
         float angleRadians = Mathf.Atan2(angleVector.y, angleVector.x);
         float angleDegrees = Mathf.Rad2Deg * angleRadians + 90;
-        windIndicator.transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
+
+        if(windIndicator) windIndicator.transform.rotation = Quaternion.Euler(0, -angleDegrees, 0);
         Debug.Log("change dir");
     }
 
@@ -135,10 +171,10 @@ public class WindSystem : Singleton<WindSystem>
         float weightedRange = Random.Range(0f, 1f);
 
         float thresh = 0.5f;
-        if (passCount >= 20 && passCount <27)
+        if (passCount >= 10 && passCount <15)
         {
             thresh = 0.35f;
-        }else if (passCount >= 27)
+        }else if (passCount >= 15)
         {
             thresh = 0.2f;
         }
@@ -151,6 +187,14 @@ public class WindSystem : Singleton<WindSystem>
         float weightedRange = Random.Range(0f, 1f);
         
         return weightedRange >= 0.4f; 
+    }
+
+
+    private void SetWindParticleParameter(int windForceParamInd)
+    {
+            windModule.startSpeed = windForceParam[windForceParamInd].windParticleSpeed;
+            windModule.startSize = windForceParam[windForceParamInd].windParticleSize;
+            windAudioSource.pitch = windForceParam[windForceParamInd].windSoundPitch;
     }
     
     

@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.19590235, g: 0.2372657, b: 0.31094998, a: 1}
+  m_IndirectSpecularColor: {r: 0.19590235, g: 0.2372657, b: 0.31094998, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -877,7 +878,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2dcdcda293505a847ad3544d79f17e44, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2c0f485bd7975e040a3fb149d7305a34, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1189,7 +1190,7 @@ PrefabInstance:
     - target: {fileID: 385735060530606317, guid: c8711fd307b640f4e9bc3f12caf91ad6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036617256876686753, guid: c8711fd307b640f4e9bc3f12caf91ad6,
         type: 3}
@@ -1261,10 +1262,44 @@ PrefabInstance:
       propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6761728139939014884, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761728139939014884, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761728139939014884, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212436535583545598, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212436535583545598, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8212436535583545598, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6368854385439474842, guid: c8711fd307b640f4e9bc3f12caf91ad6, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3036617256876686753, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1946050376}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8711fd307b640f4e9bc3f12caf91ad6, type: 3}
 --- !u!1 &789650748
@@ -2446,6 +2481,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618909243}
   m_CullTransparentMesh: 1
+--- !u!4 &1714274725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3036617256876686753, guid: c8711fd307b640f4e9bc3f12caf91ad6,
+    type: 3}
+  m_PrefabInstance: {fileID: 749820658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1717703749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4502120960468150985, guid: d695d8a2b74da944099e75d6d62c0414,

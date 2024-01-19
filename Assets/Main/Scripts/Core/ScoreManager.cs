@@ -17,6 +17,12 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI fourthText;
     
     [SerializeField] private TextMeshProUGUI rankText; 
+
+    [SerializeField] private GameObject _goldHat; 
+    [SerializeField] private GameObject _silverHat; 
+    [SerializeField] private GameObject _bronzeHat; 
+    [SerializeField] private GameObject _yourRankHat; 
+
     
     
 
@@ -24,7 +30,10 @@ public class ScoreManager : MonoBehaviour
 
     public int Rank => _rank = 0;
     
-    public void Start()
+    private void Start() {
+        UpdateAndDisplayMainRank();
+    }
+    private void UpdateAndDisplayMainRank()
     {
         
         int scoreData = DataHolder.PassCountHolder; 
@@ -56,23 +65,58 @@ public class ScoreManager : MonoBehaviour
         }
 
 
+          const string START_ANIM = "start";
 
+     
 
        //display top three
+       _goldHat.SetActive(true);
        firstText.text = $"1st: <size=80>{scoreDataList[0].score}</size>  <size=50>{scoreDataList[0].savedDate}</size>";
        // firstText.color = new Color(255, 215, 0, 1);
-       if (scoreDataList.Count < 1) return; 
+        if(_rank == 1) 
+         {
+            
+           Animator animator = _goldHat.GetComponent<Animator>();
+         
+           animator.SetBool(START_ANIM, true);
+             
+     
+         }
+       if (scoreDataList.Count < 2) return; 
        
+       _silverHat.SetActive(true);
        secondText.text = $"2nd: <size=75>{scoreDataList[1].score}</size>   <size=50>{scoreDataList[1].savedDate}</size>";
         // secondText.color = new Color32(162, 162, 162, 255);
-        if (scoreDataList.Count < 2) return; 
+         if(_rank == 2)
+         {
+             Animator animator = _silverHat.GetComponent<Animator>();
+           
+            _silverHat.GetComponent<Animator>().SetBool(START_ANIM, true);
+
+        }
+        if (scoreDataList.Count < 3) return; 
        
+       _bronzeHat.SetActive(true);
        thirdText.text = $"3rd: <size=75>{scoreDataList[2].score}</size>  <size=50>{scoreDataList[2].savedDate}</size>";
        // thirdText.color = new Color32(205, 127, 50, 255);
        string rankDislay = _rank.ToString();
-       if (_rank == 0) rankDislay = "Out of Rank";
-       fourthText.text = $"Your Rank:   {rankDislay}   <size=50>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
+
+ if(_rank == 3)
+        {
+            Animator animator = _bronzeHat.GetComponent<Animator>();
         
+            _bronzeHat.GetComponent<Animator>().SetBool(START_ANIM, true);
+        } 
+       if (_rank == 0) rankDislay = "Out of Rank";
+
+     
+        _yourRankHat.SetActive(true);
+       fourthText.text = $"Your Rank:   <size=50>{rankDislay}</size>   <size=75>{newScoreData.score}</size>  <size=50>{newScoreData.savedDate}</size>";
+        
+        
+
+
+      
        
        
 
@@ -81,9 +125,19 @@ public class ScoreManager : MonoBehaviour
     }
 
 
+
+
+
    
+
     public void ClearData()
     {
         _savingSystem.ClearData();
+        rankText.text = "";
+         _goldHat.SetActive(false);
+        _silverHat.SetActive(false);
+        _bronzeHat.SetActive(false);
+        _yourRankHat.SetActive(false);
+        
     }
 }
