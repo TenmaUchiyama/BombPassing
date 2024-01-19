@@ -10,11 +10,6 @@ using Random = UnityEngine.Random;
 public class WindSystem : Singleton<WindSystem>
 {
     
-
-  
-    
-    
-
     [SerializeField] private int startWindCount = 4;
 
     [SerializeField] private Transform windIndicator;
@@ -45,8 +40,8 @@ public class WindSystem : Singleton<WindSystem>
     private WindParameter[] windForceParam = new WindParameter[]
     {
         new WindParameter{windForce = 0.2f, windParticleSize = 0.1f, windParticleSpeed = 1f , windSoundPitch = 1f },
-        new WindParameter{windForce = 0.3f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
-        new WindParameter{windForce = 0.5f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
+        new WindParameter{windForce = 0.5f, windParticleSize = 0.15f, windParticleSpeed = 2 , windSoundPitch = 1.5f},
+        new WindParameter{windForce = 0.7f, windParticleSize = 0.2f, windParticleSpeed = 3 , windSoundPitch = 2.0f},
 
     
     };
@@ -171,10 +166,10 @@ public class WindSystem : Singleton<WindSystem>
         float weightedRange = Random.Range(0f, 1f);
 
         float thresh = 0.5f;
-        if (passCount >= 20 && passCount <27)
+        if (passCount >= 10 && passCount <15)
         {
             thresh = 0.35f;
-        }else if (passCount >= 27)
+        }else if (passCount >= 15)
         {
             thresh = 0.2f;
         }
