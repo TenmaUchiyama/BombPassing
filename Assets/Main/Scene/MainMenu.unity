@@ -1140,7 +1140,7 @@ PrefabInstance:
     - target: {fileID: 6761728139939014884, guid: c8711fd307b640f4e9bc3f12caf91ad6,
         type: 3}
       propertyPath: m_IntensityMultiplier
-      value: 1
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8212436535583545598, guid: c8711fd307b640f4e9bc3f12caf91ad6,
         type: 3}
@@ -1325,7 +1325,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.001
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2196,7 +2196,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 11.68
+  m_Intensity: 11.69
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
