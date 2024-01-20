@@ -1,0 +1,4 @@
+This application does not collect personal data. 
+Local device storage is used for storing leaderboard entries, but the data is not collected.
+
+If you installed this application from Google Play, then Google Play does collect some personal data. Please see the privacy policy for Google Play Services here: https://policies.google.com/privacy
