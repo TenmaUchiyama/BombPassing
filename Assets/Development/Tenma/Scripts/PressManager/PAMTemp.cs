@@ -53,7 +53,7 @@ public class PAMTemp : MonoBehaviour
     private void StartGame()
     {
         
-        Debug.Log("GameStart!");
+
         InstantiateArea(PressAreaType.TWO);
         _formerArea = PressAreaType.TWO;
     }
@@ -75,7 +75,7 @@ public class PAMTemp : MonoBehaviour
         if (!_pressAreaOne|| !_pressAreaTwo) return;
         if (!_pressAreaOne.IsAreaPressed && !_pressAreaTwo.IsAreaPressed)
         {
-            Debug.Log("<color=green>UPPPPPPPP</color>");
+           
             return;
         }
         
@@ -204,7 +204,7 @@ public class PAMTemp : MonoBehaviour
         
         float distance = Vector2.Distance(firstArea, secondArea);
         
-        Debug.Log("first: " + firstArea  + " second: " + secondArea + " distance: " +  distance + " width: " + Screen.width + " height: " + Screen.height);
+        
         return distance < 300;
     }
     private Vector2 GetValidRandomPosition(RectTransform previousArea = null)

@@ -24,6 +24,11 @@ public class BombSceneManager : MonoBehaviour
         StartCoroutine(ChangeSceneWithArguments(2,0.2f));
     }
 
+    public void Instruction()
+    {
+
+    }
+
     private IEnumerator ChangeSceneWithArguments(int sceneNum,  float delay)
     {
         // クリック音の長さ分だけ待機

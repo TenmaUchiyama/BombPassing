@@ -67,8 +67,7 @@ public class GameManager : Singleton<GameManager>
     public void SetReadyMode(object sender, bool isReady)
     {
 
-     Debug.Log($"<color=yellow>Ready Set by: {sender}</color>");
-
+  
         if (isReady)
         {
             readyCount = initialReadyCount; 
@@ -84,7 +83,7 @@ public class GameManager : Singleton<GameManager>
    
     public void SetPlayMode(object sender)
     {
-         Debug.Log($"<color=yellow>Play Set by: {sender}</color>");
+       
           currentGameMode = GameMode.PLAY;
          
     }
@@ -92,7 +91,6 @@ public class GameManager : Singleton<GameManager>
     
     public void SetGameOverMode(object sender)
     {
-        Debug.Log($"<color=yellow>GameOver Set  by: {sender}</color>");
       
         currentGameMode = GameMode.GAMEOVER;
         // instructionText.text = "GameOver";
@@ -121,7 +119,7 @@ public class GameManager : Singleton<GameManager>
     public void PressCountUp()
     {
         passCount += 1;
-        if (passCount == null) Debug.Log("It is null");
+       
         if (OnPassCountChanged != null) OnPassCountChanged.Invoke(this, EventArgs.Empty);
     }
 }
